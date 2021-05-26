@@ -1,5 +1,5 @@
 <template>
-  <Switch :value="isClick" @click="onClick"/>
+  <Switch value="false"/>
 </template>
 
 <script>
@@ -11,13 +11,7 @@ export default {
     Switch
   },
   setup () {
-    let isClick = ref(true)
-    const onClick = () => {
-      isClick.value = !isClick.value
-    }
     return {
-      isClick,
-      onClick
     }
   }
 }

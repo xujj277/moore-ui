@@ -1,15 +1,31 @@
 <template>
-  <div class="switch-wrapper" :class="{isOpen: value}">
+  <div class="switch-wrapper" :class="{isOpen: isOpen}">
     <div class="switch-inner"></div>
   </div>
 </template>
 
 <script>
+import {watch, ref} from 'vue';
 export default {
   props: {
     value: {
-      type: Boolean,
+      type: Boolean || String,
       default: false
+    }
+  },
+  setup (props) {
+    let isOpen = ref(false)
+    watch(() => props.value, (value) => {
+      if (value === 'true' || value === true) {
+        isOpen.value = true
+      } else {
+        isOpen.value = false
+      }
+    }, {
+      immediate: true
+    })
+    return {
+      isOpen
     }
   }
 }
