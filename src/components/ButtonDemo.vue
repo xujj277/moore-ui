@@ -1,12 +1,22 @@
 <template>
-  <div>
-    ButtonDemo
-  </div>
+  <x-button @click="xxx">xxx</x-button>
+  <x-button type="info">xxx</x-button>
+  <x-button type="info" size="large">xxx</x-button>
+  <x-button disabled>xxx</x-button>
 </template>
 
-<script>
+<script lang="ts">
+import xButton from '../lib/Button.vue'
 export default {
-  name: '',
+  components: {xButton},
+  setup () {
+    const xxx = () => {
+      console.log(2222)
+    }
+    return {
+      xxx
+    }
+  }
 }
 </script>
 
