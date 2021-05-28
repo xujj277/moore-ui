@@ -1,8 +1,5 @@
 <template>
-  <x-button @click="xxx">xxx</x-button>
-  <x-button type="info">xxx</x-button>
-  <x-button type="info" size="large">xxx</x-button>
-  <x-button disabled>xxx</x-button>
+  <x-button @click="xxx" @focus="xxx" @mouseover="xxx" :size="'large'">xxx</x-button>
 </template>
 
 <script lang="ts">

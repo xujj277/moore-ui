@@ -1,38 +1,27 @@
 <template>
-  <button class="x-button" 
-          :class="{primary: type === 'primary',
-          info: type === 'info', 
-          default: type === 'default',
-          normal: size === 'normal',
-          large: size === 'large',
-          disabled}"
-          @click="onClick"
-  >
-    <slot></slot>
-  </button>
+  <div :class="size">
+    <button v-bind="rest"><slot></slot></button>
+  </div>
 </template>
 
 <script lang="ts">
 export default {
+  inheritAttrs: false,
   props: {
     type: {
       type: String,
       default: 'default'
-    },
-    size: {
-      type: String,
-      default: 'normal'
     },
     disabled: {
       type: Boolean
     }
   },
   setup (props, context) {
-    const onClick = () => {
-      context.emit('click')
-    }
+    const {size, ...rest} = context.attrs
+    console.log(size)
     return {
-      onClick
+      size,
+      rest
     }
   }
 }
