@@ -27,6 +27,17 @@
       </div>
     </div>
   </div>
+  <h3>含动效状态</h3>
+  <div class="demo-wrapper">
+    <div class="demo-block">
+      <Switch v-model:value="y5" isWaveAnimation active-color="orange" inactive-color="grey"/>
+    </div>
+    <div class="code-block">
+      <div class="description">
+        <p>设置 isWaveAnimation 属性，接受一个 Boolean ，设置 true 即可使用 wave 动效。</p>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -42,8 +53,9 @@ export default {
     const y2 = ref(false)
     const y3 = ref(true)
     const y4 = ref(false)
+    const y5 = ref(false)
     return {
-      y1, y2, y3, y4
+      y1, y2, y3, y4, y5
     }
   }
 }
