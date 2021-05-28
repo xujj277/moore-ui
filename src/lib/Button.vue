@@ -1,19 +1,14 @@
 <template>
-  <div :class="size">
-    <button v-bind="rest"><slot></slot></button>
-  </div>
+  <button class="x-button" :class="{[`x-theme-${theme}`]: theme}"><slot></slot></button>
 </template>
 
 <script lang="ts">
 export default {
   inheritAttrs: false,
   props: {
-    type: {
+    theme: {
       type: String,
-      default: 'default'
-    },
-    disabled: {
-      type: Boolean
+      default: 'button'
     }
   },
   setup (props, context) {
@@ -27,46 +22,39 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss'>
+$h: 32px;
+$border-color: #d9d9d9;
+$color: #333;
+$blue: #40a9ff;
+$radius: 4px;
 .x-button {
-  position: relative;
-  display: inline-block;
   box-sizing: border-box;
-  height: 44px;
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-  line-height: 1.2;
-  text-align: center;
-  border-radius: 2px;
+  height: $h;
+  padding: 0 12px;
   cursor: pointer;
-  transition: opacity 0.2s;
-  
-  &.normal {
-    padding: 0 15px;
-    font-size: 14px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  background: white;
+  color: $color;
+  border: 1px solid $border-color;
+  border-radius: $radius;
+  box-shadow: 0 1px 0 fade-out(black, 0.95);
+  & + & {
+    margin-left: 8px;
   }
-  
-  &.large {
-    width: 100%;
-    height: 50px;
+  &:hover,
+  &:focus {
+    color: $blue;
+    border-color: $blue;
   }
-  
-  &.default {
-    color: #323233;
-    background-color: #fff;
-    border: 1px solid #ebedf0;
+  &:focus {
+    outline: none;
   }
-  
-  &.info {
-    color: #fff;
-    background-color: #1989fa;
-    border: 1px solid #1989fa;
-  }
-  
-  &.disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
+  &::-moz-focus-inner {
+    border: 0;
   }
 }
 </style>
