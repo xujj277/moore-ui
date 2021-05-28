@@ -1,6 +1,6 @@
 <template>
   <button class="x-switch"
-          :class="{'x-checked': value, 'x-switch-wave': isWaveAnimation, 'x-switch-wave-active': waveActive}"
+          :class="{'x-checked': value, 'x-switch-wave': isWaveShow}"
           @click="toggle"
           :disabled="disabled"
           :style="{background: bgColor}"
@@ -37,38 +37,21 @@ export default {
   },
   setup (props, context) {
     const {activeColor, inactiveColor, isWaveAnimation} = props
-    const waveActive = ref(false)
+    const isWaveShow = ref(false)
     const toggle = () => {
       context.emit('update:value', !props.value)
       if (isWaveAnimation) {
-        console.log(1)
-        waveActive.value = true
-        mySetTimeout(() =>{
-          console.log(2)
-          waveActive.value = false
-        }, 1000)
+        isWaveShow.value = true
       }
     }
     
-    const mySetTimeout = (callback, timeout) => {
-      let timer
-      let startTime = Date.now()
-      const loop = () => {
-        timer = window.requestAnimationFrame(loop)
-        if (Date.now() - startTime >= timeout) {
-          callback.call(this, timer)
-          window.cancelAnimationFrame(timer)
-        }
-      }
-      window.requestAnimationFrame(loop)
-    }
     const bgColor = computed(() => {
       return props.value ? activeColor : inactiveColor
     })
     return {
       toggle,
       bgColor,
-      waveActive
+      isWaveShow
     }
   }
 }
@@ -98,15 +81,21 @@ $grey: grey;
       right: 0em;
       top: 0em;
       bottom: 0em;
-      box-shadow: 0 0 0 0px orange;
-    }
-    
-    &-active::before {
+
+      box-shadow: 0 0 0 5px transparent;
       animation: pulse 1s;
     }
+
+    &:active {
+      box-shadow: 0 0 0 5px transparent;
+    }
+    
+    &:active::before {
+      animation: none;
+    }
     @keyframes pulse {
-      to {
-        box-shadow: 0 0 0 10px transparent;
+      from {
+        box-shadow: 0 0 0 0 lightgrey;
       }
     }
   }
