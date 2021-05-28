@@ -27,3 +27,46 @@ body {
   // 答案见 https://github.com/zenozeng/fonts.css/
   font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
 }
+
+p {
+  font-size: 14px;
+  color: #5e6d82;
+  line-height: 1.5em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}
+
+h3 {
+  margin: 55px 0 20px;
+  font-weight: 400;
+  color: #1f2f3d;
+}
+.demo-wrapper {
+  margin-bottom: 54px;
+  .demo-block {
+    padding: 24px;
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
+    transition: .2s;
+    border-bottom: none;
+  }
+  .code-block {
+    background-color: #fafafa;
+    border-top: 1px solid #eaeefb;
+    overflow: hidden;
+    transition: height .2s;
+
+    .description {
+      padding: 20px;
+      box-sizing: border-box;
+      border: 1px solid #ebebeb;
+      border-radius: 3px;
+      font-size: 14px;
+      line-height: 22px;
+      color: #666;
+      word-break: break-word;
+      margin: 10px;
+      background-color: #fff;
+    }
+  }
+}
