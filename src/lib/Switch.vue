@@ -36,23 +36,54 @@ export default {
     }
   },
   setup (props, context) {
-    const {activeColor, inactiveColor, isWaveAnimation} = props
-    const isWaveShow = ref(false)
+    const {activeColor, inactiveColor} = props
+    const waveAnimation = createWaveAnimation({
+      isWaveAnimation: true,
+      activeColor,
+      inactiveColor,
+    })
+    waveAnimation.onCreate()
+
     const toggle = () => {
       context.emit('update:value', !props.value)
-      if (isWaveAnimation) {
-        isWaveShow.value = true
-      }
+      waveAnimation.onToggle(props.value)
     }
-    
+
     const bgColor = computed(() => {
       return props.value ? activeColor : inactiveColor
     })
     return {
       toggle,
       bgColor,
-      isWaveShow
+      isWaveShow: waveAnimation.isWaveShow
     }
+  }
+}
+
+function createWaveAnimation ({ isWaveAnimation, activeColor, inactiveColor }) {
+  if (!isWaveAnimation) {
+    return {
+      onCreate () {},
+      onToggle () {},
+    }
+  }
+  let style = document.createElement('style');
+  let isWaveShow = ref(false);
+  return {
+    onCreate () {
+      document.getElementsByTagName('head')[0].appendChild(style);
+    },
+    onToggle (checked) {
+      isWaveShow.value = true
+      let keyFrames = `
+        @keyframes x-switch-pulse {\
+          0% {\
+            box-shadow: 0 0 0 0 ${!checked ? activeColor : inactiveColor};\
+          }\
+        }`
+      style.innerHTML = keyFrames
+    },
+    isWaveShow
   }
 }
 </script>
@@ -68,7 +99,7 @@ $grey: grey;
   border-radius: $h/2;
   position: relative;
   cursor: pointer;
-  
+
   &-wave {
     &::before {
       height: $h;
@@ -83,20 +114,11 @@ $grey: grey;
       bottom: 0em;
 
       box-shadow: 0 0 0 5px transparent;
-      animation: pulse 1s;
+      animation: x-switch-pulse 1s;
     }
 
-    &:active {
-      box-shadow: 0 0 0 5px transparent;
-    }
-    
     &:active::before {
       animation: none;
-    }
-    @keyframes pulse {
-      from {
-        box-shadow: 0 0 0 0 lightgrey;
-      }
     }
   }
 

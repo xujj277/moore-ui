@@ -27,7 +27,7 @@
       </div>
     </div>
   </div>
-  <h3>含动效状态</h3>
+  <h3>动效状态</h3>
   <div class="demo-wrapper">
     <div class="demo-block">
       <Switch v-model:value="y5" isWaveAnimation active-color="orange" inactive-color="grey"/>
