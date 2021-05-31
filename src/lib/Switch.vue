@@ -36,9 +36,9 @@ export default {
     }
   },
   setup (props, context) {
-    const {activeColor, inactiveColor} = props
+    const {activeColor, inactiveColor, isWaveAnimation} = props
     const waveAnimation = createWaveAnimation({
-      isWaveAnimation: true,
+      isWaveAnimation: isWaveAnimation,
       activeColor,
       inactiveColor,
     })
@@ -52,6 +52,7 @@ export default {
     const bgColor = computed(() => {
       return props.value ? activeColor : inactiveColor
     })
+    
     return {
       toggle,
       bgColor,
