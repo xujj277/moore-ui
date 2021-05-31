@@ -4,7 +4,7 @@
   <h3>基本用法</h3>
   <div class="demo-wrapper">
     <div class="demo-block">
-      <Button>Default Button</Button>
+      <Button @click="onClick">Default Button</Button>
       <Button theme="primary">Primary Button</Button>
       <Button theme="danger">Danger Button</Button>
     </div>
@@ -51,11 +51,11 @@
     </div>
     <div class="code-block">
       <div class="description">
-        <p>你可以使用disabled属性来定义按钮是否可用，它接受一个Boolean值。</p>
+        <p>你可以使用 disabled 属性来定义按钮是否可用，它接受一个 Boolean 值。</p>
       </div>
     </div>
   </div>
-  <h3>禁用按钮</h3>
+  <h3>加载中</h3>
   <div class="demo-wrapper">
     <div class="demo-block">
       <Button loading>Loading Button</Button>
@@ -64,6 +64,17 @@
     <div class="code-block">
       <div class="description">
         <p>添加 loading 属性即可让按钮处于加载状态。</p>
+      </div>
+    </div>
+  </div>
+  <h3>动效状态</h3>
+  <div class="demo-wrapper">
+    <div class="demo-block">
+      <Button isWaveAnimation>WaveAnimation Button</Button>
+    </div>
+    <div class="code-block">
+      <div class="description">
+        <p>设置 isWaveAnimation 属性，接受一个 Boolean ，设置 true 即可使用 wave 动效。</p>
       </div>
     </div>
   </div>

@@ -1,15 +1,14 @@
 <template>
-  <button class="x-button" :class="classes" :disabled="disabled || loading">
+  <button class="x-button" @click="click" :class="classes" :disabled="disabled || loading">
     <span v-if="loading" class="x-loadingIndicator"></span>
     <slot></slot>
   </button>
 </template>
 
 <script lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 export default {
-  inheritAttrs: false,
   props: {
     theme: {
       type: String,
@@ -31,19 +30,59 @@ export default {
       type: Boolean,
       default: false
     },
+    isWaveAnimation: {
+      type: Boolean,
+      default: false
+    }
   },
-  setup (props, context) {
-    const {theme, size, loading} = props
+  setup: function (props, context) {
+    const {theme, size, loading, isWaveAnimation} = props
+    const waveAnimation = createWaveAnimation({
+      isWaveAnimation: isWaveAnimation,
+    })
+    waveAnimation.onCreate()
+    const click = () => {
+      waveAnimation.onToggle()
+    }
+
     const classes = computed(() => {
       return {
         [`x-theme-${theme}`]: theme,
         [`x-size-${size}`]: size,
-        [`x-loading`]: loading,
+        ['x-loading']: loading,
+        ['x-button-wave']: waveAnimation.isWaveShow
       }
     })
     return {
-      classes
+      classes,
+      click,
     }
+  }
+}
+function createWaveAnimation ({ isWaveAnimation }) {
+  if (!isWaveAnimation) {
+    return {
+      onCreate () {},
+      onToggle () {},
+    }
+  }
+  let style = document.createElement('style');
+  let isWaveShow = ref(false);
+  return {
+    onCreate () {
+      document.getElementsByTagName('head')[0].appendChild(style);
+    },
+    onToggle () {
+      isWaveShow.value = true
+      let keyFrames = `
+        @keyframes x-switch-pulse {\
+          0% {\
+            box-shadow: 0 0 0 0 #3a8ee6;\
+          }\
+        }`
+      style.innerHTML = keyFrames
+    },
+    isWaveShow
   }
 }
 </script>
@@ -73,6 +112,29 @@ $active-color: #3a8ee6;
   border-radius: $radius;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
   transition: background 250ms;
+
+  position: relative;
+  &-wave {
+    &::before {
+      height: $h;
+      border: none;
+      border-radius: $radius;
+      position: absolute;
+      content: '';
+      left: 0;
+      right: 0;
+      top: -1px;
+      bottom: 0;
+
+      box-shadow: 0 0 0 5px transparent;
+      animation: x-switch-pulse 1s;
+    }
+
+    &:active::before {
+      animation: none;
+    }
+  }
+  
   & + & {
     margin-left: 8px;
   }
