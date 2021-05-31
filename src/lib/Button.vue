@@ -1,5 +1,5 @@
 <template>
-  <button class="x-button" :class="classes" :disabled="disabled">
+  <button class="x-button" :class="classes" :disabled="disabled || loading">
     <span v-if="loading" class="x-loadingIndicator"></span>
     <slot></slot>
   </button>
@@ -15,11 +15,11 @@ export default {
       type: String,
       default: 'button'
     },
-    level: {
+    size: {
       type: String,
       default: 'normal'
     },
-    size: {
+    level: {
       type: String,
       default: 'normal'
     },
@@ -33,12 +33,12 @@ export default {
     },
   },
   setup (props, context) {
-    const {theme, level, size} = props
+    const {theme, size, loading} = props
     const classes = computed(() => {
       return {
         [`x-theme-${theme}`]: theme,
-        [`x-level-${level}`]: level,
         [`x-size-${size}`]: size,
+        [`x-loading`]: loading,
       }
     })
     return {
@@ -54,8 +54,10 @@ $border-color: #d9d9d9;
 $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
-$red: red;
+$red: #ed5b56;
+$focus-danger-red: #ff7875;
 $grey: grey;
+$active-color: #3a8ee6;
 .x-button {
   box-sizing: border-box;
   height: $h;
@@ -77,13 +79,40 @@ $grey: grey;
   &:hover,
   &:focus {
     color: $blue;
-    border-color: $blue;
+    border-color: #c6e2ff;
+    background: #eef5fe;
+  }
+  &:active {
+    color: $active-color;
+    border-color: $active-color;
+    outline: none;
   }
   &:focus {
     outline: none;
   }
   &::-moz-focus-inner {
     border: 0;
+  }
+  &.x-theme-primary {
+    background: #579ef8;
+    color: #fff;
+    border-color: #409eff;
+
+    &:hover,
+    &:focus {
+      background: #66b1ff;
+      border-color: #66b1ff;
+    }
+  }
+  &.x-theme-danger {
+    background: $red;
+    border-color: $red;
+    color: white;
+    &:hover,
+    &:focus {
+      background: $focus-danger-red;
+      border-color: $focus-danger-red;
+    }
   }
   &.x-theme-link {
     border-color: transparent;
@@ -112,28 +141,6 @@ $grey: grey;
     font-size: 12px;
     height: 20px;
     padding: 0 4px;
-  }
-  &.x-theme-button {
-    &.x-level-main {
-      background: $blue;
-      color: white;
-      border-color: $blue;
-      &:hover,
-      &:focus {
-        background: darken($blue, 10%);
-        border-color: darken($blue, 10%);
-      }
-    }
-    &.x-level-danger {
-      background: $red;
-      border-color: $red;
-      color: white;
-      &:hover,
-      &:focus {
-        background: darken($red, 10%);
-        border-color: darken($red, 10%);
-      }
-    }
   }
   &.x-theme-link {
     &.x-level-danger {
@@ -164,9 +171,9 @@ $grey: grey;
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
-      &:hover {
-        border-color: $grey;
-      }
+      background-image: none;
+      background-color: #fff;
+      border-color: #ebeef5;
     }
   }
   &.x-theme-link, &.x-theme-text {
@@ -175,13 +182,17 @@ $grey: grey;
       color: $grey;
     }
   }
+  
+  &.x-loading {
+    pointer-events: none;
+  }
   > .x-loadingIndicator{
     width: 14px;
     height: 14px;
     display: inline-block;
     margin-right: 4px;
     border-radius: 8px;
-    border-color: $blue $blue $blue transparent;
+    border-color: $grey $grey $grey transparent;
     border-style: solid;
     border-width: 2px;
     animation: x-spin 1s infinite linear;

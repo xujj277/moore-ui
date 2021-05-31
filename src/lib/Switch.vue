@@ -24,7 +24,7 @@ export default {
     },
     inactiveColor: {
       type: String,
-      default: 'white'
+      default: 'grey'
     },
     disabled: {
       type: Boolean,
