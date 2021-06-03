@@ -1,7 +1,7 @@
 <template>
   <button class="x-button" @click="click" :class="classes" :disabled="disabled || loading">
-    <span v-if="loading" class="x-loadingIndicator"></span>
-    <slot></slot>
+    <span v-if="loading" class="x-loadingIndicator x-icon"></span>
+    <span class="x-content"><slot></slot></span>
   </button>
 </template>
 
@@ -33,10 +33,17 @@ export default {
     isWaveAnimation: {
       type: Boolean,
       default: false
+    },
+    iconPosition: {
+      type: String,
+      default: 'left',
+      validator (value) {
+        return value === 'left' || value === 'right'
+      }
     }
   },
-  setup: function (props, context) {
-    const {theme, size, loading, isWaveAnimation} = props
+  setup (props, context) {
+    const {theme, size, loading, isWaveAnimation, iconPosition} = props
     const waveAnimation = createWaveAnimation({
       isWaveAnimation: isWaveAnimation,
     })
@@ -50,7 +57,8 @@ export default {
         [`x-theme-${theme}`]: theme,
         [`x-size-${size}`]: size,
         ['x-loading']: loading,
-        ['x-button-wave']: waveAnimation.isWaveShow
+        ['x-button-wave']: waveAnimation.isWaveShow,
+        [`x-icon-${iconPosition}`]: iconPosition
       }
     })
     return {
@@ -114,6 +122,26 @@ $active-color: #3a8ee6;
   transition: background 250ms;
 
   position: relative;
+  
+  &.x-icon-right {
+    .x-content {
+      order: 1;
+    }
+    .x-icon {
+      order: 2;
+      margin-left: 4px;
+    }
+  }
+  
+  &.x-icon-left {
+    .x-content {
+      order: 2;
+    }
+    .x-icon {
+      order: 1;
+      margin-right: 4px;
+    }
+  }
   &-wave {
     &::before {
       height: $h;

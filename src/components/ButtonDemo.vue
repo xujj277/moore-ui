@@ -67,6 +67,18 @@
       </div>
     </div>
   </div>
+  <h3>图标位置</h3>
+  <div class="demo-wrapper">
+    <div class="demo-block">
+      <Button loading icon-position="left">Loading Button</Button>
+      <Button loading icon-position="right">Loading Button</Button>
+    </div>
+    <div class="code-block">
+      <div class="description">
+        <p>添加 iconPosition 属性即可设置 icon 的位置，只接受 'left' 和 'right' 两个字符串。</p>
+      </div>
+    </div>
+  </div>
   <h3>动效状态</h3>
   <div class="demo-wrapper">
     <div class="demo-block">
