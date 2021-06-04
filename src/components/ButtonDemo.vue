@@ -11,7 +11,7 @@
     <div class="code-block">
       <div class="description">
         <p>使用 theme 属性来定义 Button 的样式。</p>
-        <p>theme 默认不写，用基础按钮样式。还可取 primary 主要按钮。</p>
+        <p>theme 默认不写，用基础按钮样式。还可取 primary 主要按钮，danger 危险按钮。</p>
       </div>
     </div>
   </div>
@@ -48,6 +48,8 @@
       <Button disabled>Disabled Button</Button>
       <Button theme="link" disabled>Disabled Link Button</Button>
       <Button theme="text" disabled>Disabled Text Button</Button>
+      <Button theme="danger" disabled>Disabled Text Button</Button>
+      <Button theme="primary" disabled>Disabled Text Button</Button>
     </div>
     <div class="code-block">
       <div class="description">

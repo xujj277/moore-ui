@@ -18,10 +18,6 @@ export default {
       type: String,
       default: 'normal'
     },
-    level: {
-      type: String,
-      default: 'normal'
-    },
     disabled: {
       type: Boolean,
       default: false
@@ -193,6 +189,17 @@ $active-color: #3a8ee6;
       background: #66b1ff;
       border-color: #66b1ff;
     }
+    
+    &:active {
+      background: $active-color;
+      border-color: $active-color;
+    }
+    
+    &[disabled] {
+      color: #fff;
+      background-color: #a0cfff;
+      border-color: #a0cfff;
+    }
   }
   &.x-theme-danger {
     background: $red;
@@ -203,6 +210,17 @@ $active-color: #3a8ee6;
       background: $focus-danger-red;
       border-color: $focus-danger-red;
     }
+    
+    &:active {
+      background: #dd6161;
+      border-color: #dd6161;
+    }
+    
+    &[disabled] {
+      color: white;
+      background-color: #fab6b6;
+      border-color: #fab6b6;
+    }
   }
   &.x-theme-link {
     border-color: transparent;
@@ -211,6 +229,7 @@ $active-color: #3a8ee6;
     &:hover,
     &:focus {
       color: lighten($blue, 10%);
+      background-color: transparent;
     }
   }
   &.x-theme-text {
@@ -232,36 +251,8 @@ $active-color: #3a8ee6;
     height: 20px;
     padding: 0 4px;
   }
-  &.x-theme-link {
-    &.x-level-danger {
-      color: $red;
-      &:hover,
-      &:focus {
-        color: darken($red, 10%);
-      }
-    }
-  }
-  &.x-theme-text {
-    &.x-level-main {
-      color: $blue;
-      &:hover,
-      &:focus {
-        color: darken($blue, 10%);
-      }
-    }
-    &.x-level-danger {
-      color: $red;
-      &:hover,
-      &:focus {
-        color: darken($red, 10%);
-      }
-    }
-  }
   &.x-theme-button {
     &[disabled] {
-      cursor: not-allowed;
-      color: $grey;
-      background-image: none;
       background-color: #fff;
       border-color: #ebeef5;
     }
@@ -270,7 +261,13 @@ $active-color: #3a8ee6;
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
+      background-color: transparent;
     }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    color: $grey;
   }
   
   &.x-loading {
