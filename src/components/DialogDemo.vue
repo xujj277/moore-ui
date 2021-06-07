@@ -1,12 +1,21 @@
 <template>
   <div>
-    <Button @click="onClick">展示弹层</Button>
+    <Button @click="toggle">展示弹层</Button>
     <Dialog
+      :closeOnClickOverlay="false"
       title="Title"
       v-model:visible="visible"
-      @confirm="handleOk"
+      @ok="handleOk"
       @cancel="handleCancel"
-    ></Dialog>
+    >
+      <template v-slot:title>
+        <strong>Title</strong>
+      </template>
+      <template v-slot:content>
+        <div>hi</div>
+        <strong>hi</strong>
+      </template>
+    </Dialog>
   </div>
 </template>
 
@@ -26,11 +35,12 @@ export default {
     const visible = ref(false)
     const handleOk = () => {
       console.log(1)
+      return false
     }
     const handleCancel = () => {
       console.log(2)
     }
-    const onClick = () => {
+    const toggle = () => {
       visible.value = true
     }
     return {
@@ -38,7 +48,7 @@ export default {
       visible,
       handleCancel,
       handleOk,
-      onClick
+      toggle
     }
   }
 }
