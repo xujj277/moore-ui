@@ -1,18 +1,20 @@
 <template>
   <template v-if="visible">
-    <div class="x-dialog-overlay" @click="onClickOverlay"></div>
-    <div class="x-dialog-wrapper">
-      <div class="x-dialog">
-        <header><slot name="title"/> <span @click="close" class="x-dialog-close"></span></header>
-        <main>
-          <slot name="content"/>
-        </main>
-        <footer>
-          <Button theme="primary" @click="onConfirm">OK</Button>
-          <Button @click="onCancel">Cancel</Button>
-        </footer>
+    <teleport to="body">
+      <div class="x-dialog-overlay" @click="onClickOverlay"></div>
+      <div class="x-dialog-wrapper">
+        <div class="x-dialog">
+          <header><slot name="title"/> <span @click="close" class="x-dialog-close"></span></header>
+          <main>
+            <slot name="content"/>
+          </main>
+          <footer>
+            <Button theme="primary" @click="onConfirm">OK</Button>
+            <Button @click="onCancel">Cancel</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </teleport>
   </template>
 </template>
 
@@ -34,6 +36,9 @@ export default {
     },
     ok: {
       type: Function
+    },
+    cancel: {
+      type: Function
     }
   },
   setup (props, context) {
@@ -41,12 +46,12 @@ export default {
       context.emit('update:visible', false)
     }
     const onCancel = () => {
-      context.emit('cancel')
-      close()
+      if (props.cancel?.() !== false) {
+        close()
+      }
     }
     const onConfirm = () => {
       if (props.ok?.() !== false) {
-        console.log(props.ok)
         close()
       }
     }

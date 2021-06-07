@@ -1,12 +1,12 @@
 <template>
   <div>
-    <Button @click="toggle">展示弹层</Button>
+    <Button @click="showDialog">展示弹层</Button>
     <Dialog
       :closeOnClickOverlay="false"
-      title="Title"
+      :title="Title"
       v-model:visible="visible"
-      @ok="handleOk"
-      @cancel="handleCancel"
+      :ok="handleOk"
+      :cancel="handleCancel"
     >
       <template v-slot:title>
         <strong>Title</strong>
@@ -22,6 +22,7 @@
 <script lang="ts">
 import Dialog from '../lib/Dialog.vue'
 import Button from '../lib/Button.vue'
+import { openDialog } from '../lib/openDialog'
 import { ref } from 'vue'
 
 export default {
@@ -43,12 +44,26 @@ export default {
     const toggle = () => {
       visible.value = true
     }
+    const showDialog = () => {
+      openDialog({
+        title: Title,
+        content: 'hi',
+        ok: () => {
+          console.log(1)
+          return false
+        },
+        cancel: () => {
+          console.log(2)
+        }
+      })
+    }
     return {
       Title,
       visible,
       handleCancel,
       handleOk,
-      toggle
+      toggle,
+      showDialog
     }
   }
 }
