@@ -4,7 +4,10 @@
       <div class="x-dialog-overlay" @click="onClickOverlay"></div>
       <div class="x-dialog-wrapper">
         <div class="x-dialog">
-          <header><slot name="title"/> <span @click="close" class="x-dialog-close"></span></header>
+          <header>
+            <slot name="title"/>
+            <span @click="close" class="x-dialog-close"></span>
+          </header>
           <main>
             <slot name="content"/>
           </main>

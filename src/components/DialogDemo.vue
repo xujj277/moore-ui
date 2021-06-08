@@ -7,7 +7,6 @@
       <Button @click="toggle">展示弹层</Button>
       <Dialog
         :closeOnClickOverlay="false"
-        :title="Title"
         v-model:visible="visible"
         :ok="handleOk"
         :cancel="handleCancel"
