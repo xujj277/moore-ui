@@ -6,7 +6,7 @@ import Doc from './view/Doc.vue'
 import SwitchDemo from './components/SwitchDemo.vue'
 import ButtonDemo from './components/ButtonDemo.vue'
 import DialogDemo from './components/DialogDemo.vue'
-import Tab from './components/Tab.vue'
+import Tab from './components/TabDemon.vue'
 import DocDemo from './components/DocDemo.vue'
 
 export const router = createRouter({
