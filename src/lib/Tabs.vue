@@ -1,6 +1,6 @@
 <template>
   <div class="x-tabs">
-    <div class="x-tabs-nav">
+    <div class="x-tabs-nav" ref="container">
       <div class="x-tabs-nav-item"
            v-for="(item, index) in defaults"
            :class="{selected: item.props.name === activeName}"
@@ -9,7 +9,7 @@
       >
         {{item.props.title}}
       </div>
-      <div class="x-tabs-nav-indicator"></div>
+      <div class="x-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="x-tabs-content">
       <template v-for="item in defaults">
@@ -24,7 +24,7 @@
 
 <script lang="ts">
 import Tab from './Tab.vue'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUpdated } from 'vue'
 export default {
   name: 'Tabs',
   props: {
@@ -33,11 +33,21 @@ export default {
     }
   },
   setup (props, context) {
-    const navItems = ref([])
+    const navItems = ref<HTMLDivElement>([])
+    const indicator = ref<HTMLDivElement>(null)
+    const container = ref<HTMLDivElement>(null)
     const defaults = context.slots.default()
-    onMounted(() => {     
-      console.log(...navItems.value)
-    })
+    const x = () => {
+      const div = navItems.value
+      const result = div.filter(div => div.classList.contains('selected'))[0]
+      const {width, left: left2} = result.getBoundingClientRect()
+      const {left: left1} = container.value.getBoundingClientRect()
+      const left = left2 - left1
+      indicator.value.style.width = width + 'px'
+      indicator.value.style.left = left + 'px'
+    }
+    onMounted(x)
+    onUpdated(x)
     defaults.forEach((tag) => {
       if (tag.type !== Tab) {
         throw new Error('Tabs 子标签必须是 Tab')
@@ -49,7 +59,9 @@ export default {
     return {
       defaults,
       onClick,
-      navItems
+      navItems,
+      indicator,
+      container
     }
   },
 }
@@ -85,6 +97,7 @@ $border-color: #d9d9d9;
       left: 0;
       bottom: -1px;
       width: 100px;
+      transition: all 0.3s;
     }
   }
   &-content {

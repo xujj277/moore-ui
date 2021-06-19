@@ -1,7 +1,7 @@
 <template>
   <Tabs v-model:activeName="y1">
     <Tab title="导航1" name="1">内容1</Tab>
-    <Tab title="导航2" name="2">内容2</Tab>
+    <Tab title="导航2232323" name="2">内容2</Tab>
   </Tabs>
 </template>
 
@@ -15,7 +15,7 @@ export default {
     Tab
   },
   setup () {
-    const y1 = ref('1')
+    const y1 = ref('2')
     return {
       y1
     }
