@@ -2,9 +2,10 @@
   <div class="x-tabs">
     <div class="x-tabs-nav">
       <div class="x-tabs-nav-item"
-           v-for="item in defaults"
+           v-for="(item, index) in defaults"
            :class="{selected: item.props.name === activeName}"
            @click="onClick(item)"
+           :ref="el => { if (el) navItems[index] = el }"
       >
         {{item.props.title}}
       </div>
@@ -23,6 +24,7 @@
 
 <script lang="ts">
 import Tab from './Tab.vue'
+import { ref, onMounted } from 'vue'
 export default {
   name: 'Tabs',
   props: {
@@ -31,15 +33,23 @@ export default {
     }
   },
   setup (props, context) {
+    const navItems = ref([])
     const defaults = context.slots.default()
-    console.log(defaults)
-    console.log(context.slots.default()[0].type === Tab)
+    onMounted(() => {     
+      console.log(...navItems.value)
+    })
+    defaults.forEach((tag) => {
+      if (tag.type !== Tab) {
+        throw new Error('Tabs 子标签必须是 Tab')
+      }
+    })
     const onClick = (value) => {
       context.emit('update:activeName', value.props.name)
     }
     return {
       defaults,
-      onClick
+      onClick,
+      navItems
     }
   },
 }
@@ -55,6 +65,8 @@ $border-color: #d9d9d9;
     display: flex;
     color: $color;
     border-bottom: 1px solid $border-color;
+    position: relative;
+    
     &-item {
       padding: 8px 0;
       margin: 0 16px;
@@ -65,14 +77,14 @@ $border-color: #d9d9d9;
       &.selected {
         color: $blue;
       }
-      &-indicator {
-        position: absolute;
-        height: 3px;
-        background: $blue;
-        left: 0;
-        bottom: -1px;
-        width: 100px;
-      }
+    }
+    &-indicator {
+      position: absolute;
+      height: 3px;
+      background: $blue;
+      left: 0;
+      bottom: -1px;
+      width: 100px;
     }
   }
   &-content {
