@@ -3,16 +3,17 @@
     <div class="x-tabs-nav" ref="container">
       <div class="x-tabs-nav-item"
            v-for="(item, index) in defaults"
+           :key="index"
            :class="{selected: item.props.name === activeName}"
            @click="onClick(item)"
-           :ref="el => { if (el) navItems[index] = el }"
+           :ref="el => { if (item.props.name === activeName) selectedItem = el }"
       >
         {{item.props.title}}
       </div>
       <div class="x-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="x-tabs-content">
-      <template v-for="item in defaults">
+      <template v-for="item in defaults" :key="item.props.name">
         <component class="x-tabs-content-item"
                    :is="item"
                    v-if="item.props.name === activeName"
@@ -24,7 +25,7 @@
 
 <script lang="ts">
 import Tab from './Tab.vue'
-import { ref, onMounted, onUpdated } from 'vue'
+import { ref, onMounted, watchEffect, watch } from 'vue'
 export default {
   name: 'Tabs',
   props: {
@@ -33,21 +34,22 @@ export default {
     }
   },
   setup (props, context) {
-    const navItems = ref<HTMLDivElement>([])
+    const selectedItem = ref<HTMLDivElement>(null)
     const indicator = ref<HTMLDivElement>(null)
     const container = ref<HTMLDivElement>(null)
-    const defaults = context.slots.default()
-    const x = () => {
-      const div = navItems.value
-      const result = div.filter(div => div.classList.contains('selected'))[0]
-      const {width, left: left2} = result.getBoundingClientRect()
-      const {left: left1} = container.value.getBoundingClientRect()
-      const left = left2 - left1
-      indicator.value.style.width = width + 'px'
-      indicator.value.style.left = left + 'px'
-    }
-    onMounted(x)
-    onUpdated(x)
+    onMounted(() => {
+      watchEffect(() => {
+        const {width, left: left2} = selectedItem.value.getBoundingClientRect()
+        const {left: left1} = container.value.getBoundingClientRect()
+        const left = left2 - left1
+        indicator.value.style.width = width + 'px'
+        indicator.value.style.left = left + 'px'
+      }, {
+        flush: 'post'
+      })
+    })
+    
+    const defaults = context.slots.default()  // 获取插槽内容
     defaults.forEach((tag) => {
       if (tag.type !== Tab) {
         throw new Error('Tabs 子标签必须是 Tab')
@@ -59,7 +61,7 @@ export default {
     return {
       defaults,
       onClick,
-      navItems,
+      selectedItem,
       indicator,
       container
     }
