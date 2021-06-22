@@ -1,9 +1,12 @@
 <template>
   <div class="topnav">
-    <div class="logo">LOGO</div>
+    <div class="logo">
+      <svg class="icon">
+        <use xlink:href="#icon-zhuangyuan"></use>
+      </svg>
+    </div>
     <ul class="menu">
-      <li>菜单1</li>
-      <li>菜单2</li>
+      <router-link to="/doc">文档</router-link>
     </ul>
     <span class="toggleAside" @click="toggleMenu"></span>
   </div>
@@ -25,7 +28,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .topnav {
-  background: pink;
   display: flex;
   padding: 16px;
   position: fixed;
@@ -38,6 +40,12 @@ export default {
   > .logo {
     max-width: 6em;
     margin-right: auto;
+    
+    >svg {
+      width: 32px;
+      height: 32px;
+      fill: #e7977b;
+    }
   }
   > .menu {
     display: flex;
