@@ -11,19 +11,21 @@ import ButtonDemo from './components/ButtonDemo.vue'
 import DialogDemo from './components/DialogDemo.vue'
 import Tab from './components/TabDemon.vue'
 import DocDemo from './components/DocDemo.vue'
-
+import { h } from 'vue'
+import Markdown from './components/Markdown.vue'
+const md = filename => h(Markdown, {path: `../markdown/${filename}.md`, key: filename})
 export const router = createRouter({
   history: history,
   routes: [
     {path: '/', component: Home},
     {
-      path: '/doc', 
-      component: Doc, 
+      path: '/doc',
+      component: Doc,
       children: [
         {path: '/', component: DocDemo},
-        {path: 'install', component: Install},
-        {path: 'get-started', component: GetStarted},
-        {path: 'intro', component: Intro},
+        {path: 'install', component: md('install')},
+        {path: 'get-started', component: md('get-started')},
+        {path: 'intro', component: md('intro')},
         {path: 'switch', component: SwitchDemo},
         {path: 'button', component: ButtonDemo},
         {path: 'dialog', component: DialogDemo},
