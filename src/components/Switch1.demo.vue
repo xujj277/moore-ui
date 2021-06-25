@@ -1,5 +1,5 @@
 <demo>
-常规用法
+基本用法
 </demo>
 <template>
   <Switch v-model:value="y1" active-color="#13ce66" inactive-color="grey"/>

@@ -1,0 +1,90 @@
+<template>
+  <h3>{{component.__sourceCodeTitle}}</h3>
+  <div class="demo-wrapper">
+    <div class="demo-block">
+      <component :is="component"></component>
+    </div>
+    <div class="code-block">
+      <div class="description">
+        <slot></slot>
+      </div>
+    </div>
+    <div class="code-block">
+      <div class="demo-actions">
+        <Button @click="toggleCode">查看代码</Button>
+      </div>
+      <div class="description" v-if="codeVisible"><pre class="language-css" v-html="html"></pre></div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import Button from '../lib/Button.vue'
+import { computed, ref } from 'vue'
+import 'prismjs';
+import 'prismjs/themes/prism-okaidia.css';
+const Prism = (window as any).Prism
+
+export default {
+  components: {
+    Button
+  },
+  props: {
+    component: Object
+  },
+  setup(props) {
+    const html = computed(() => {
+      return Prism.highlight(props.component.__sourceCode, Prism.languages.html, 'html')
+    })
+    const toggleCode = () => codeVisible.value = !codeVisible.value
+    const codeVisible = ref(false)
+    return {
+      html,
+      Prism,
+      codeVisible,
+      toggleCode
+    }
+  }
+}
+</script>
+
+<style lang='scss' scoped>
+h3 {
+  margin: 55px 0 20px;
+  font-weight: 400;
+  color: #1f2f3d;
+}
+.demo-wrapper {
+  margin-bottom: 54px;
+  .demo-block {
+    padding: 24px;
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
+    transition: .2s;
+    border-bottom: none;
+  }
+  .code-block {
+    background-color: #fafafa;
+    border-top: 1px solid #eaeefb;
+    overflow: hidden;
+    transition: height .2s;
+    
+    .demo-actions {
+      padding: 8px 16px;
+    }
+
+    .description {
+      padding: 20px;
+      box-sizing: border-box;
+      border: 1px solid #ebebeb;
+      border-radius: 3px;
+      font-size: 14px;
+      line-height: 22px;
+      color: #666;
+      word-break: break-word;
+      margin: 10px;
+      background-color: #fff;
+    }
+  }
+}
+</style>
