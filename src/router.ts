@@ -9,7 +9,10 @@ import DialogDemo from './components/DialogDemo.vue'
 import Tab from './components/TabDemon.vue'
 import { h } from 'vue'
 import Markdown from './components/Markdown.vue'
-const md = filename => h(Markdown, {path: `../markdown/${filename}.md`, key: filename})
+import intro from './markdown/intro.md'
+import getStarted from './markdown/get-started.md'
+import install from './markdown/install.md'
+const md = string => h(Markdown, {content: string, key: string}) 
 export const router = createRouter({
   history: history,
   routes: [
@@ -19,9 +22,9 @@ export const router = createRouter({
       component: Doc,
       children: [
         {path: '', redirect: '/doc/intro'},
-        {path: 'install', component: md('install')},
-        {path: 'get-started', component: md('get-started')},
-        {path: 'intro', component: md('intro')},
+        {path: 'install', component: md(install)},
+        {path: 'get-started', component: md(getStarted)},
+        {path: 'intro', component: md(intro)},
         {path: 'switch', component: SwitchDemo},
         {path: 'button', component: ButtonDemo},
         {path: 'dialog', component: DialogDemo},
