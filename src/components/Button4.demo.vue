@@ -10,7 +10,7 @@
   <Button theme="primary" disabled>Disabled Text Button</Button>
 </template>
 
-<script>
+<script lang="ts">
 import Button from '../lib/Button.vue'
 
 export default {

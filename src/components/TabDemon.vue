@@ -1,27 +1,21 @@
 <template>
-  <Tabs v-model:activeName="y1">
-    <Tab title="导航1" name="1">内容1</Tab>
-    <Tab title="导航2232323" name="2">内容2</Tab>
-  </Tabs>
+  <h2>Tabs 标签页</h2>
+  <p>分隔内容上有关联但属于不同类别的数据集合。</p>
+  <Demo :component="Tab1Demo"><p>提供一个 activeName 值来表示对应选中的值，用 name 作为 tab 的标识。</p></Demo>
 </template>
 
 <script lang="ts">
-import Tabs from '../lib/Tabs.vue'
-import Tab from '../lib/Tab.vue'
-import { ref } from 'vue'
+import Tab1Demo from './Tab1.demo.vue'
+import Demo from './Demo.vue'
+
 export default {
   components: {
-    Tabs, 
-    Tab
+    Demo
   },
   setup () {
-    const y1 = ref('2')
     return {
-      y1
+      Tab1Demo
     }
   }
 }
 </script>
-
-<style lang='scss' scoped>
-</style>
