@@ -117,6 +117,8 @@ $primary-border-color: #b7c4ba;
   border-radius: $radius;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
   transition: background 250ms;
+  -webkit-user-select: none;/*禁用手机浏览器的用户选择功能 */
+  -moz-user-select: none;
 
   position: relative;
   
@@ -151,7 +153,7 @@ $primary-border-color: #b7c4ba;
       top: -1px;
       bottom: 0;
 
-      box-shadow: 0 0 0 5px transparent;
+      box-shadow: 0 0 0 10px transparent;
       animation: x-switch-pulse 1s;
     }
 
@@ -165,7 +167,7 @@ $primary-border-color: #b7c4ba;
   }
   &:hover,
   &:focus {
-    background: darken(#f5d68a, 10%);
+    background: darken(#f5d68a, 25%);
   }
   &:active {
     background: #c1a157;
@@ -183,11 +185,11 @@ $primary-border-color: #b7c4ba;
 
     &:hover,
     &:focus {
-      background: darken($primary-blue, 5%);
+      background: darken($primary-blue, 25%);
     }
     
     &:active {
-      background: darken($primary-blue, 10%);
+      background: darken($primary-blue, 30%);
     }
     
     &[disabled] {
@@ -200,11 +202,11 @@ $primary-border-color: #b7c4ba;
     color: white;
     &:hover,
     &:focus {
-      background: darken($red, 5%);
+      background: darken($red, 25%);
     }
     
     &:active {
-      background: darken($red, 10%);
+      background: darken($red, 30%);
     }
     
     &[disabled] {

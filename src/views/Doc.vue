@@ -85,6 +85,7 @@ aside {
   left: 0;
   padding-top: 80px;
   height: 100%;
+  z-index: 10;
   > h1 {
     margin-bottom: 4px;
     padding: 0 16px;

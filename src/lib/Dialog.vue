@@ -101,14 +101,14 @@ $border-color: #eae2d3;
     width: 100%;
     height: 100%;
     background: fade_out(black, 0.5);
-    z-index: 10;
+    z-index: 12;
   }
   &-wrapper {
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    z-index: 11;
+    z-index: 13;
   }
   header {
     padding: 12px 16px;
