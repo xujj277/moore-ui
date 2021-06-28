@@ -1,9 +1,7 @@
 <template>
   <div class="topnav">
     <router-link to="/" class="logo">
-      <svg class="icon">
-        <use xlink:href="#icon-zhuangyuan"></use>
-      </svg>
+      <img src="../assets/logo.png" alt="">
     </router-link>
     <ul class="menu">
       <router-link to="/doc">文档</router-link>
@@ -46,13 +44,13 @@ export default {
   justify-content: center;
   align-items: center;
   > .logo {
-    max-width: 6em;
+    max-width: 1em;
+    width: 50px;
     margin-right: auto;
     
-    >svg {
-      width: 32px;
-      height: 32px;
-      fill: #e7977b;
+    img {
+      width: 51px;
+      height: 47px;
     }
   }
   > .menu {

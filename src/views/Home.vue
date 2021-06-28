@@ -3,7 +3,7 @@
     <div class="home-page">
       <Topnav/>
       <div class="banner">
-        <h1>轱辘UI</h1>
+        <h1>摩尔UI</h1>
         <h2>一个厉害的 UI 框架</h2>
         <p class="actions">
           <a href="https://github.com/xujj277/xu-ui-1">GitHub</a>
@@ -76,7 +76,7 @@ $color: #c66f48;
     
     >ul {
       >li {
-        width: 33%;
+        width: 33.33%;
       }
     }
   }
@@ -84,7 +84,6 @@ $color: #c66f48;
     display: flex;
     flex-wrap: wrap;
     >li {
-      width: 400px;
       margin: 16px 0;
       display: grid;
       justify-content: start;

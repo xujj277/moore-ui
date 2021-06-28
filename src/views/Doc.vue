@@ -3,7 +3,7 @@
     <Topnav class="nav" toggleMenuButtonVisible/>
     <div class="content">
       <aside v-if="menuVisible">
-        <h2>文档</h2>
+        <h2>文档</h2>  
         <ol>
           <li>
             <router-link to="/doc/intro">介绍</router-link>
@@ -76,7 +76,8 @@ export default {
   }
 }
 aside {
-  background: lightblue;
+  background: #f6f8fa;
+  opacity: 0.8;
   width: 150px;
   padding: 16px 0;
   position: fixed;
@@ -98,7 +99,9 @@ aside {
       }
       
       .router-link-active {
-        background: white;
+        background: #e79579;
+        
+        color: white;
       }
     }
   }
