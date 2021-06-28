@@ -3,7 +3,7 @@
 </demo>
 
 <template>
-  <Button isWaveAnimation>WaveAnimation Button</Button>
+  <Button isWaveAnimation>动效按钮</Button>
 </template>
 
 <script lang="ts">

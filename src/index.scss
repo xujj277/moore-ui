@@ -36,4 +36,27 @@ p {
   line-height: 1.5em;
   margin-block-start: 1em;
   margin-block-end: 1em;
+  
+  &.tips {
+    color: #fff;
+  }
+}
+
+h2 {
+  color: #fff;
+}
+
+.markdown-body {
+  color: #fff;
+  
+  h1 {
+    color: #fff;
+  }
+  
+  p {
+    color: #fff;
+    a {
+      color: #ebdec3;
+    }
+  }
 }

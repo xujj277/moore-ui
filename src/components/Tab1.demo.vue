@@ -4,8 +4,8 @@
 
 <template>
   <Tabs v-model:activeName="y1">
-    <Tab title="tab1" name="1">content1</Tab>
-    <Tab title="tab2" name="2">content2</Tab>
+    <Tab title="庄园任务" name="1">家园订单</Tab>
+    <Tab title="每日任务" name="2">施肥</Tab>
   </Tabs>
 </template>
 

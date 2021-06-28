@@ -3,7 +3,7 @@
     <Topnav class="nav" toggleMenuButtonVisible/>
     <div class="content">
       <aside v-if="menuVisible">
-        <h2>文档</h2>  
+        <h1>文档</h1>  
         <ol>
           <li>
             <router-link to="/doc/intro">介绍</router-link>
@@ -15,7 +15,7 @@
             <router-link to="/doc/get-started">开始使用</router-link>
           </li>
         </ol>
-        <h2>组件列表</h2>
+        <h1>组件列表</h1>
         <ol>
           <li>
             <router-link to="/doc/switch">Switch 组件</router-link>
@@ -57,8 +57,9 @@ export default {
     flex-shrink: 0;
   }
   > .content {
+    background: #d6a176;
     flex-grow: 1;
-    padding-top: 60px;
+    padding-top: 90px;
     padding-left: 156px;
     @media (max-width: 500px) {
       padding-left: 0;
@@ -76,17 +77,15 @@ export default {
   }
 }
 aside {
-  background: #f6f8fa;
-  opacity: 0.8;
+  background: #e8dcc4;
   width: 150px;
   padding: 16px 0;
   position: fixed;
   top: 0;
   left: 0;
-  padding-top: 70px;
+  padding-top: 80px;
   height: 100%;
-  z-index: 10;
-  > h2 {
+  > h1 {
     margin-bottom: 4px;
     padding: 0 16px;
   }
@@ -99,7 +98,7 @@ aside {
       }
       
       .router-link-active {
-        background: #e79579;
+        background: #d6a176;
         
         color: white;
       }

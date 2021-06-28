@@ -55,20 +55,22 @@ export default {
 h3 {
   margin: 55px 0 20px;
   font-weight: 400;
-  color: #1f2f3d;
+  color: #fff;
 }
 .demo-wrapper {
   margin-bottom: 54px;
+  background: #eaddc1;
+  border: 6px solid #f1ebd8;
+  border-radius: 10px;
+  
   .demo-block {
     padding: 24px;
-    border: 1px solid #ebebeb;
     border-radius: 3px;
     transition: .2s;
     border-bottom: none;
   }
   .code-block {
-    background-color: #fafafa;
-    border-top: 1px solid #eaeefb;
+    border-top: 3px solid #f1ebd8;
     overflow: hidden;
     transition: height .2s;
     
@@ -86,7 +88,11 @@ h3 {
       color: #666;
       word-break: break-word;
       margin: 10px;
-      background-color: #fff;
+      background-color: #eee6d0;
+      
+      p {
+        color: #5e6d82;
+      }
     }
   }
 }

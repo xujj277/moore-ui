@@ -81,7 +81,7 @@ function createWaveAnimation ({ isWaveAnimation }) {
       let keyFrames = `
         @keyframes x-switch-pulse {\
           0% {\
-            box-shadow: 0 0 0 0 #3a8ee6;\
+            box-shadow: 0 0 0 0 #f7d06f;\
           }\
         }`
       style.innerHTML = keyFrames
@@ -93,26 +93,27 @@ function createWaveAnimation ({ isWaveAnimation }) {
 
 <style lang='scss'>
 $h: 32px;
-$border-color: #d9d9d9;
-$color: #333;
-$blue: #40a9ff;
-$radius: 4px;
-$red: #ed5b56;
-$focus-danger-red: #ff7875;
-$grey: grey;
+$border-color: #fff;
+$color: #fff;
+$radius: 8px;
+$red: #e99779;
+$grey: #e8dcc4;
 $active-color: #3a8ee6;
+$primary-blue: #97cbe3;
+$primary-border-color: #b7c4ba;
+
 .x-button {
   box-sizing: border-box;
   height: $h;
-  padding: 0 12px;
+  padding: 0 16px;
   cursor: pointer;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   white-space: nowrap;
-  background: white;
+  background: #f7d06f;
   color: $color;
-  border: 1px solid $border-color;
+  border: 2px solid $border-color;
   border-radius: $radius;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
   transition: background 250ms;
@@ -164,13 +165,10 @@ $active-color: #3a8ee6;
   }
   &:hover,
   &:focus {
-    color: $blue;
-    border-color: #c6e2ff;
-    background: #eef5fe;
+    background: darken(#f5d68a, 10%);
   }
   &:active {
-    color: $active-color;
-    border-color: $active-color;
+    background: #c1a157;
     outline: none;
   }
   &:focus {
@@ -180,55 +178,47 @@ $active-color: #3a8ee6;
     border: 0;
   }
   &.x-theme-primary {
-    background: #579ef8;
+    background: $primary-blue;
     color: #fff;
-    border-color: #409eff;
 
     &:hover,
     &:focus {
-      background: #66b1ff;
-      border-color: #66b1ff;
+      background: darken($primary-blue, 5%);
     }
     
     &:active {
-      background: $active-color;
-      border-color: $active-color;
+      background: darken($primary-blue, 10%);
     }
     
     &[disabled] {
       color: #fff;
-      background-color: #a0cfff;
-      border-color: #a0cfff;
+      background: lighten($primary-blue, 5%);
     }
   }
   &.x-theme-danger {
     background: $red;
-    border-color: $red;
     color: white;
     &:hover,
     &:focus {
-      background: $focus-danger-red;
-      border-color: $focus-danger-red;
+      background: darken($red, 5%);
     }
     
     &:active {
-      background: #dd6161;
-      border-color: #dd6161;
+      background: darken($red, 10%);
     }
     
     &[disabled] {
       color: white;
-      background-color: #fab6b6;
-      border-color: #fab6b6;
+      background: lighten($red, 10%);
     }
   }
   &.x-theme-link {
     border-color: transparent;
     box-shadow: none;
-    color: $blue;
+    color: inherit;
+    background: #e8dcc4;
     &:hover,
     &:focus {
-      color: lighten($blue, 10%);
       background-color: transparent;
     }
   }
@@ -236,9 +226,11 @@ $active-color: #3a8ee6;
     border-color: transparent;
     box-shadow: none;
     color: inherit;
+    background: #e8dcc4;
+    
     &:hover,
     &:focus {
-      background: darken(white, 5%);
+      background: darken(#e8dcc4, 5%);
     }
   }
   &.x-size-big {
@@ -253,21 +245,20 @@ $active-color: #3a8ee6;
   }
   &.x-theme-button {
     &[disabled] {
-      background-color: #fff;
-      border-color: #ebeef5;
+      background-color: #d8d8d8;
     }
   }
   &.x-theme-link, &.x-theme-text {
     &[disabled] {
       cursor: not-allowed;
-      color: $grey;
+      color: inherit;
       background-color: transparent;
     }
   }
 
   &[disabled] {
     cursor: not-allowed;
-    color: $grey;
+    color: #fff;
   }
   
   &.x-loading {
@@ -279,7 +270,7 @@ $active-color: #3a8ee6;
     display: inline-block;
     margin-right: 4px;
     border-radius: 8px;
-    border-color: $grey $grey $grey transparent;
+    border-color: #fff #fff #fff transparent;
     border-style: solid;
     border-width: 2px;
     animation: x-spin 1s infinite linear;

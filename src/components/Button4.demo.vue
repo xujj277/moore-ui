@@ -3,11 +3,11 @@
 </demo>
 
 <template>
-  <Button disabled>Disabled Button</Button>
-  <Button theme="link" disabled>Disabled Link Button</Button>
-  <Button theme="text" disabled>Disabled Text Button</Button>
-  <Button theme="danger" disabled>Disabled Text Button</Button>
-  <Button theme="primary" disabled>Disabled Text Button</Button>
+  <Button disabled>领取</Button>
+  <Button theme="link" disabled>链接禁止按钮</Button>
+  <Button theme="text" disabled>文字禁止按钮</Button>
+  <Button theme="danger" disabled>目标追踪</Button>
+  <Button theme="primary" disabled>取消追踪</Button>
 </template>
 
 <script lang="ts">

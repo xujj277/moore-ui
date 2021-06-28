@@ -2,7 +2,7 @@
 基本用法
 </demo>
 <template>
-  <Switch v-model:value="y1" active-color="#13ce66" inactive-color="grey"/>
+  <Switch v-model:value="y1" active-color="#ee9b68" inactive-color="#f2d07d"/>
   <Switch v-model:value="y2" active-color="#13ce66" inactive-color="#ff4949"/>
 </template>
 

@@ -3,9 +3,9 @@
 </demo>
 
 <template>
-  <Button>Default Button</Button>
-  <Button theme="primary">Primary Button</Button>
-  <Button theme="danger">Danger Button</Button>
+  <Button>领取</Button>
+  <Button theme="primary">目标追踪</Button>
+  <Button theme="danger">取消追踪</Button>
 </template>
 
 <script lang="ts">

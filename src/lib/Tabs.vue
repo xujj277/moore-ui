@@ -70,9 +70,9 @@ export default {
 </script>
 
 <style lang='scss'>
-$blue: #40a9ff;
-$color: #333;
-$border-color: #d9d9d9;
+$blue: #cd9350;
+$color: #fff;
+$border-color: #b0967a;
 
 .x-tabs {
   &-nav {
@@ -99,7 +99,7 @@ $border-color: #d9d9d9;
       left: 0;
       bottom: -1px;
       width: 100px;
-      transition: all 0.3s;
+      transition: all 0.2s;
     }
   }
   &-content {

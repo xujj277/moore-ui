@@ -3,8 +3,8 @@
 </demo>
 
 <template>
-  <Button loading>Loading Button</Button>
-  <Button>Loading End</Button>
+  <Button loading>加载中</Button>
+  <Button>加载完成</Button>
 </template>
 
 <script lang="ts">

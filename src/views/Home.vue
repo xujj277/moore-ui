@@ -4,7 +4,7 @@
       <Topnav/>
       <div class="banner">
         <h1>摩尔UI</h1>
-        <h2>一个厉害的 UI 框架</h2>
+        <h2>一个关于摩尔庄园的 UI 框架</h2>
         <p class="actions">
           <a href="https://github.com/xujj277/xu-ui-1">GitHub</a>
           <router-link to="/doc">开始</router-link>
@@ -57,6 +57,10 @@ $color: #c66f48;
 .home-page {
   background: linear-gradient(145deg, rgba(245,235,224,1) 0%, rgba(229,211,196,1) 49%, rgba(244,234,223,1) 100%);
   clip-path: ellipse(80% 60% at 50% 40%);
+  
+  .topnav {
+    background: none;
+  }
 }
 .features {
   margin: 64px auto;

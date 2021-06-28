@@ -3,8 +3,8 @@
 </demo>
 
 <template>
-  <Button theme="text">Text</Button>
-  <Button theme="link">Link</Button>
+  <Button theme="text">文字</Button>
+  <Button theme="link">链接</Button>
 </template>
 
 <script lang="ts">

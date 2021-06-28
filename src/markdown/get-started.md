@@ -4,7 +4,7 @@
 然后在你的代码中写入下面的代码
 
 ```
-import {Button, Tabs, Switch, Dialog} from "xu-ui"
+import {Button, Tabs, Switch, Dialog} from "moore-ui"
 ```
 
 就可以使用我提供的组件了。
@@ -20,7 +20,7 @@ import {Button, Tabs, Switch, Dialog} from "xu-ui"
   </div>
 </template>
 <script>
-import {Button, Tabs, Switch, Dialog} from "xu-ui"
+import {Button, Tabs, Switch, Dialog} from "moore-ui"
 export default {
   components: {Button}
 }

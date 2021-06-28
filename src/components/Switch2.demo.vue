@@ -2,8 +2,8 @@
 禁用状态
 </demo>
 <template>
-  <Switch v-model:value="y3" disabled active-color="#13ce66" inactive-color="grey"/>
-  <Switch v-model:value="y4" disabled active-color="#13ce66" inactive-color="grey"/>
+  <Switch v-model:value="y3" disabled active-color="#ee9b68" inactive-color="#e8d9bf"/>
+  <Switch v-model:value="y4" disabled active-color="#ee9b68" inactive-color="#f2d07d"/>
 </template>
 
 <script>
