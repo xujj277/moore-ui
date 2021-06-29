@@ -7,12 +7,6 @@
 <script lang="ts">
 export default {
   name: 'xTab',
-  props: {
-  },
-  setup (props, context) {
-    return {
-    }
-  }
 }
 </script>
 

@@ -1,13 +1,13 @@
 <demo>
-基本用法
+卡片样式
 </demo>
 
 <template>
-  <Tabs v-model:activeName="y1">
-    <Tab title="庄园任务" name="1">家园订单</Tab>
-    <Tab title="每日任务" name="2">施肥</Tab>
-    <Tab title="成长任务" name="3">磨练厨艺</Tab>
-    <Tab title="长期任务" name="4">登录</Tab>
+  <Tabs v-model:activeName="y1" type="card">
+    <Tab title="家园装饰" name="1">宫廷装扮</Tab>
+    <Tab title="小屋家具" name="2">温馨装置</Tab>
+    <Tab title="小镇建筑" name="3">复古灯光</Tab>
+    <Tab title="超拉专属" name="4">零食</Tab>
   </Tabs>
 </template>
 

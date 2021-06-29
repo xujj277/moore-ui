@@ -1,5 +1,5 @@
 <template>
-  <div class="x-tabs">
+  <div class="x-tabs" :class="{card: type === 'card'}">
     <div class="x-tabs-nav" ref="container">
       <div class="x-tabs-nav-item"
            v-for="(item, index) in defaults"
@@ -8,7 +8,9 @@
            @click="onClick(item)"
            :ref="el => { if (item.props.name === activeName) selectedItem = el }"
       >
-        {{item.props.title}}
+        <span>
+          {{item.props.title}}
+        </span>
       </div>
       <div class="x-tabs-nav-indicator" ref="indicator"></div>
     </div>
@@ -30,6 +32,9 @@ export default {
   name: 'Tabs',
   props: {
     activeName: {
+      type: String
+    },
+    type: {
       type: String
     }
   },
@@ -70,7 +75,7 @@ export default {
 </script>
 
 <style lang='scss'>
-$blue: #cd9350;
+$yellow: #cd9350;
 $color: #fff;
 $border-color: #b0967a;
 
@@ -89,17 +94,52 @@ $border-color: #b0967a;
         margin-left: 0;
       }
       &.selected {
-        color: $blue;
+        color: $yellow;
       }
     }
     &-indicator {
       position: absolute;
       height: 3px;
-      background: $blue;
+      background: $yellow;
       left: 0;
       bottom: -1px;
       width: 100px;
       transition: all 0.2s;
+    }
+  }
+  &.card {
+    position: relative;
+    .x-tabs-nav {
+      box-sizing: border-box;
+      background: linear-gradient(90deg,transparent 0%, rgba(77, 108, 179, 0.4) 50%,transparent 100%);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-left: none;
+      border-right: none;
+    }
+    .x-tabs-nav-item {
+      margin: 0 10px;
+      &:first-child {
+        margin-left: 0;
+      }
+      &.selected {
+        background: #eae6d2;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        border-radius: 18px;
+        padding: 6px 0;
+        
+        span {
+          padding: 8px;
+          border: 1px solid #e5cca5;
+          border-radius: 18px;
+        }
+      }
+
+      span {
+        padding: 10px;
+      }
+    }
+    .x-tabs-nav-indicator {
+      display: none;
     }
   }
   &-content {

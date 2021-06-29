@@ -60,6 +60,7 @@ $color: #c66f48;
   
   .topnav {
     background: none;
+    box-shadow: none;
   }
 }
 .features {
