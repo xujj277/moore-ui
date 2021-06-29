@@ -119,6 +119,7 @@ $primary-border-color: #b7c4ba;
   transition: background 250ms;
   -webkit-user-select: none;/*禁用手机浏览器的用户选择功能 */
   -moz-user-select: none;
+  margin: 8px 8px 8px 0;
 
   position: relative;
   
@@ -162,9 +163,6 @@ $primary-border-color: #b7c4ba;
     }
   }
   
-  & + & {
-    margin-left: 8px;
-  }
   &:hover,
   &:focus {
     background: darken(#f5d68a, 25%);
@@ -242,8 +240,8 @@ $primary-border-color: #b7c4ba;
   }
   &.x-size-small {
     font-size: 12px;
-    height: 20px;
-    padding: 0 4px;
+    height: 24px;
+    padding: 2px 4px;
   }
   &.x-theme-button {
     &[disabled] {

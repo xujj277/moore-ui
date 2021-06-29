@@ -43,7 +43,8 @@ export default {
   z-index: 11;
   justify-content: center;
   align-items: center;
-  background: #e6dcc7;
+  background: #8c6e59;
+  box-shadow: 0 2px 8px #8c6e59;
   
   > .logo {
     max-width: 5em;
