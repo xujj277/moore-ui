@@ -4,7 +4,7 @@
       <div class="x-tabs-nav-item"
            v-for="(item, index) in defaults"
            :key="index"
-           :class="{selected: item.props.name === activeName}"
+           :class="{selected: item.props.name === activeName, disabled: item.props.disabled === '' || item.props.disabled}"
            @click="onClick(item)"
            :ref="el => { if (item.props.name === activeName) selectedItem = el }"
       >
@@ -36,6 +36,10 @@ export default {
     },
     type: {
       type: String
+    },
+    disabled: {
+      type: Boolean || String,
+      default: false
     }
   },
   setup (props, context) {
@@ -61,6 +65,7 @@ export default {
       }
     })
     const onClick = (value) => {
+      if (value.props.disabled || value.props.disabled === '') return
       context.emit('update:activeName', value.props.name)
     }
     return {
@@ -93,6 +98,14 @@ $border-color: #b0967a;
       &:first-child {
         margin-left: 0;
       }
+      
+      &.disabled {
+        color: rgba(0,0,0,.25);
+        &:hover {
+          cursor: not-allowed;
+        }
+      }
+      
       &.selected {
         color: $yellow;
       }
@@ -135,7 +148,7 @@ $border-color: #b0967a;
       }
 
       span {
-        padding: 10px;
+        padding: 11px;
       }
     }
     .x-tabs-nav-indicator {
