@@ -9,7 +9,7 @@
            :ref="el => { if (item.props.name === activeName) selectedItem = el }"
       >
         <span>
-          {{item.props.title}}
+          {{ item.props.title }}
         </span>
       </div>
       <div class="x-tabs-nav-indicator" ref="indicator"></div>
@@ -28,6 +28,7 @@
 <script lang="ts">
 import Tab from './Tab.vue'
 import { ref, onMounted, watchEffect, watch } from 'vue'
+
 export default {
   name: 'Tabs',
   props: {
@@ -38,7 +39,7 @@ export default {
       type: String
     },
     disabled: {
-      type: Boolean || String,
+      type: [Boolean, String],
       default: false
     }
   },
@@ -90,26 +91,29 @@ $border-color: #b0967a;
     color: $color;
     border-bottom: 1px solid $border-color;
     position: relative;
-    
+
     &-item {
       padding: 8px 0;
       margin: 0 16px;
       cursor: pointer;
+
       &:first-child {
         margin-left: 0;
       }
-      
+
       &.disabled {
-        color: rgba(0,0,0,.25);
+        color: rgba(0, 0, 0, .25);
+
         &:hover {
           cursor: not-allowed;
         }
       }
-      
+
       &.selected {
         color: $yellow;
       }
     }
+
     &-indicator {
       position: absolute;
       height: 3px;
@@ -120,26 +124,31 @@ $border-color: #b0967a;
       transition: all 0.2s;
     }
   }
+
   &.card {
     position: relative;
+
     .x-tabs-nav {
       box-sizing: border-box;
-      background: linear-gradient(90deg,transparent 0%, rgba(77, 108, 179, 0.4) 50%,transparent 100%);
+      background: linear-gradient(90deg, transparent 0%, rgba(77, 108, 179, 0.4) 50%, transparent 100%);
       border: 1px solid rgba(255, 255, 255, 0.4);
       border-left: none;
       border-right: none;
     }
+
     .x-tabs-nav-item {
       margin: 0 10px;
+
       &:first-child {
         margin-left: 0;
       }
+
       &.selected {
         background: #eae6d2;
         border: 2px solid rgba(255, 255, 255, 0.4);
         border-radius: 18px;
         padding: 6px 0;
-        
+
         span {
           padding: 8px;
           border: 1px solid #e5cca5;
@@ -151,10 +160,12 @@ $border-color: #b0967a;
         padding: 11px;
       }
     }
+
     .x-tabs-nav-indicator {
       display: none;
     }
   }
+
   &-content {
     padding: 8px 0;
   }
