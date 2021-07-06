@@ -1,9 +1,11 @@
 <demo>
-基本用法
+错误提示
 </demo>
 
 <template>
-  <Input :value="value" placeholder="Basic usage"></Input>
+  <Input :value="value" placeholder="点击输入米米号"
+         error="请输入内容">
+  </Input>
 </template>
 
 <script lang="ts">

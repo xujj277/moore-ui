@@ -1,9 +1,8 @@
 <template>
-  <div class="wrapper">
-    <input class="x-input" type="text" :value="value" :disabled="disabled">
+  <div class="wrapper" :class="{error}">
+    <input class="x-input" type="text" :value="value" :disabled="disabled" :placeholder="placeholder">
     <!--用 template 减少div的使用-->
     <template v-if="error">
-      
       <span class="errorMsg">{{error}}</span>
     </template>
   </div>
@@ -21,6 +20,9 @@ export default {
     },
     error: {
       type: String,
+    },
+    placeholder: {
+      type: String
     }
   },
   setup () {
@@ -33,31 +35,44 @@ export default {
 $border-color: #e6e3e0;
 $border-radius: 10px;
 $border-color-hover: #666;
-$box-shadow-color: rgba(0, 0, 0, 0.5);
+$box-shadow-color: #e9e6cc;
+$red: #F1453D;
 
-.x-input {
-  font-size: 14px;
-  height: 32px;
-  border: 1px solid $border-color;
-  border-radius: $border-radius;
-  padding: 0 8px;
-  background: #f1e9d1;
+.wrapper {
+  .x-input {
+    font-size: 14px;
+    height: 32px;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    padding: 0 8px;
+    background: #f2efd4;
+    color: #af886c;
 
-  &:hover {
-    border-color: $border-color-hover;
+    &:focus {
+      outline: none;
+      background: #e9e6cc;
+    }
+
+    &::placeholder {
+      color: #d2ab9a;
+    }
+
+    &[disabled] {
+      color: #bbb;
+      cursor: not-allowed;
+
+      &::placeholder {
+        color: #bbb;
+      }
+    }
   }
-  &:focus {
-    box-shadow: inset 0 1px 3px $box-shadow-color;
-    outline: none;
+  &.error {
+    > input {
+      border-color: $red;
+    }
   }
-  &::placeholder {
-    color: #d5c8b1;
-  }
-  
-  &[disabled] {
-    border-color: #bbb;
-    color: #bbb;
-    cursor: not-allowed;
+  .errorMsg {
+    color: $red;
   }
 }
 </style>

@@ -1,9 +1,9 @@
 <demo>
-基本用法
+禁用状态
 </demo>
 
 <template>
-  <Input :value="value" placeholder="Basic usage"></Input>
+  <Input :value="value" placeholder="点击输入米米号" :disabled="disabled"></Input>
 </template>
 
 <script lang="ts">
@@ -16,8 +16,10 @@ export default {
   },
   setup (props) {
     const value = ref('')
+    const disabled = ref(true)
     return {
       value,
+      disabled,
     }
   }
 }
