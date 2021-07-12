@@ -1,9 +1,9 @@
 <template>
-  <div class="wrapper" :class="{error}">
+  <div class="x-wrapper" :class="{error}">
     <input class="x-input" type="text" :value="value" :disabled="disabled" :placeholder="placeholder">
     <!--用 template 减少div的使用-->
     <template v-if="error">
-      <span class="errorMsg">{{error}}</span>
+      <span class="x-errorMsg">{{error}}</span>
     </template>
   </div>
 </template>
@@ -38,7 +38,7 @@ $border-color-hover: #666;
 $box-shadow-color: #e9e6cc;
 $red: #F1453D;
 
-.wrapper {
+.x-wrapper {
   .x-input {
     font-size: 14px;
     height: 32px;
@@ -71,7 +71,7 @@ $red: #F1453D;
       border-color: $red;
     }
   }
-  .errorMsg {
+  .x-errorMsg {
     color: $red;
   }
 }
