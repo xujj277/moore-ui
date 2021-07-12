@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 
 export default {
   props: {
@@ -52,7 +52,10 @@ export default {
   },
   setup (props, context) {
     const defaults = context.slots.message()[0].children
-    console.log(context.slots.message())
+    console.log(defaults)
+    const line = ref<HTMLDivElement>(null)
+    const toast = ref<HTMLDivElement>(null)
+    const {autoClose} = props
     const toastClasses = computed(() => {
       return {
         [`position-${props.position}`] : true
@@ -63,14 +66,35 @@ export default {
       context.emit('update:visible', false)
     }
     const onClickClose = () => {
-      if (this.closeButton) {
+      if (props.closeButton) {
         close()
+        if (typeof props.closeButton.callback === 'function') {
+          props.closeButton.callback(this)
+        }
       }
     }
+    const autoClosed = () => {
+      if (autoClose) {
+        setTimeout(() => {
+          close()
+        }, autoClose * 1000)
+      }
+    }
+    const updateStyles = () => {
+      if (props.closeButton) {
+        line.value.style.height = `${toast.value.getBoundingClientRect().height}px`
+      }
+    }
+    onMounted(() => {
+      autoClosed()
+      updateStyles()
+    })
     return {
       toastClasses,
       onClickClose,
-      defaults
+      defaults,
+      line,
+      toast
     }
   }
 }

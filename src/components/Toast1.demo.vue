@@ -24,8 +24,12 @@ export default {
       openToast({
         message: () => {return `<strong>asdfasdf</strong>`},
         autoClose: false,
-        closeButton: false,
+        closeButton: {
+          text: '关闭',
+          callback: () => {console.log(1232)}
+        },
         enableHtml: false,
+        position: 'bottom'
       })
     }
     return {
