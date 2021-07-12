@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, onUnmounted } from 'vue'
 
 export default {
   props: {
@@ -29,7 +29,7 @@ export default {
     },
     autoClose: {
       type: [Boolean, Number],
-      default: 5,
+      default: 3,
       validator (value) {
         return value === false || typeof value === 'number'
       }
@@ -52,9 +52,9 @@ export default {
   },
   setup (props, context) {
     const defaults = context.slots.message()[0].children
-    console.log(defaults)
     const line = ref<HTMLDivElement>(null)
     const toast = ref<HTMLDivElement>(null)
+    let timerId
     const {autoClose} = props
     const toastClasses = computed(() => {
       return {
@@ -74,8 +74,8 @@ export default {
       }
     }
     const autoClosed = () => {
-      if (autoClose) {
-        setTimeout(() => {
+      if (props.autoClose) {
+        timerId = setTimeout(() => {
           close()
         }, autoClose * 1000)
       }
@@ -88,6 +88,9 @@ export default {
     onMounted(() => {
       autoClosed()
       updateStyles()
+    })
+    onUnmounted(() => {
+      window.clearTimeout(timerId)
     })
     return {
       toastClasses,

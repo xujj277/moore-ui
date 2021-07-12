@@ -1,9 +1,9 @@
 <demo>
-基本用法
+自动关闭和关闭按钮
 </demo>
 
 <template>
-  <Button @click="showToast">领取</Button>
+  <Button @click="showToast">不自动关闭</Button>
 </template>
 
 <script lang="ts">
@@ -19,7 +19,12 @@ export default {
     let toastVisible = ref(false)
     const showToast = () => {
       openToast({
-        message: () => {return `基础用法`},
+        message: () => {return `不自动关闭`},
+        autoClose: false,
+        closeButton: {
+          text: '关闭',
+          callback: () => {console.log('关闭后回调')}
+        },
       })
     }
     return {
