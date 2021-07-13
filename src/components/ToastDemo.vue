@@ -13,12 +13,16 @@
   <Demo :component="Toast3Demo">
     <p>position 接受一个 String 类型，默认值是 'top'，还可以写 'middle' 和 'bottom'</p>
   </Demo>
+  <Demo :component="Toast4Demo">
+    <p>enableHtml 接受一个 Boolean 类型，默认值是 false</p>
+  </Demo>
 </template>
 
 <script lang="ts">
 import Toast1Demo from './Toast1.demo.vue'
 import Toast2Demo from './Toast2.demo.vue'
 import Toast3Demo from './Toast3.demo.vue'
+import Toast4Demo from './Toast4.demo.vue'
 import Demo from './Demo.vue'
 
 export default {
@@ -29,7 +33,8 @@ export default {
     return {
       Toast1Demo,
       Toast2Demo,
-      Toast3Demo
+      Toast3Demo,
+      Toast4Demo
     }
   }
 }

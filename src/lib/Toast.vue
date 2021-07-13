@@ -106,7 +106,7 @@ export default {
 <style lang='scss'>
 $font-size: 14px;
 $toast-min-height: 40px; // 不要写死高度
-$toast-background: rgba(0, 0, 0, 0.75);
+$toast-background: rgba(241, 154, 81, 0.8);
 .x-wrapper {
   position: fixed;
   left: 50%;
@@ -145,7 +145,7 @@ $toast-background: rgba(0, 0, 0, 0.75);
   color: #ffffff;
   background: $toast-background;
   border-radius: 4px;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.50);
+  box-shadow: 0 0 3px rgba(241, 154, 81, 0.50);
   padding: 0 16px;
   .x-message {
     padding: 8px 0;
@@ -156,7 +156,7 @@ $toast-background: rgba(0, 0, 0, 0.75);
   }
   .x-line {
     height: 100%;
-    border-left: 1px solid #666;
+    border-left: 1px solid #999;
     margin-left: 16px;
   }
 }
