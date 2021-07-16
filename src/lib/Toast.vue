@@ -1,7 +1,7 @@
 <template>
   <template v-if="visible">
     <teleport to="body">
-      <div class="x-wrapper" :class="toastClasses">
+      <div class="x-toast-wrapper" :class="toastClasses">
         <!--toast 这个做动画-->
         <div class="x-toast" ref="toast">
           <div class="x-message">
@@ -107,7 +107,7 @@ export default {
 $font-size: 14px;
 $toast-min-height: 40px; // 不要写死高度
 $toast-background: rgba(241, 154, 81, 0.8);
-.x-wrapper {
+.x-toast-wrapper {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
