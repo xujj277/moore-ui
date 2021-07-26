@@ -119,9 +119,12 @@ $primary-border-color: #b7c4ba;
   transition: background 250ms;
   -webkit-user-select: none;/*禁用手机浏览器的用户选择功能 */
   -moz-user-select: none;
-  margin: 8px 8px 8px 0;
 
   position: relative;
+
+  & + & {
+    margin-left: 8px;
+  }
   
   &.x-icon-right {
     .x-content {
