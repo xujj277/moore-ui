@@ -3,7 +3,7 @@
 </demo>
 
 <template>
-  <Button @click="showToast">不自动关闭</Button>
+  <Button theme="primary" @click="showToast">不自动关闭</Button>
 </template>
 
 <script lang="ts">

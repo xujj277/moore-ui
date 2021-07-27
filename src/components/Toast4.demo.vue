@@ -3,7 +3,7 @@
 </demo>
 
 <template>
-  <Button @click="showToast">enableHtml</Button>
+  <Button theme="primary" @click="showToast">enableHtml</Button>
 </template>
 
 <script lang="ts">

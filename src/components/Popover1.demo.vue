@@ -12,7 +12,7 @@
   <Popover trigger="hover">
     <template v-slot:content>content</template>
     <template v-slot:default>
-      <Button>触发</Button>
+      <Button theme="primary">触发</Button>
     </template>
   </Popover>
 </template>

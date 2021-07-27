@@ -4,8 +4,8 @@
 
 <template>
   <Button @click="showToast">上面</Button>
-  <Button @click="showToast1">中间</Button>
-  <Button @click="showToast2">下面</Button>
+  <Button theme="primary" @click="showToast1">中间</Button>
+  <Button theme="danger" @click="showToast2">下面</Button>
 </template>
 
 <script lang="ts">

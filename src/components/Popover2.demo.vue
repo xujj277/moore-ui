@@ -12,13 +12,13 @@
   <Popover trigger="click" position="bottom">
     <template v-slot:content>content</template>
     <template v-slot:default>
-      <Button>HOT值</Button>
+      <Button theme="primary">HOT值</Button>
     </template>
   </Popover>
   <Popover trigger="click" position="left">
     <template v-slot:content>content</template>
     <template v-slot:default>
-      <Button>爱心值</Button>
+      <Button theme="danger">爱心值</Button>
     </template>
   </Popover>
   <Popover trigger="click" position="right">

@@ -3,7 +3,7 @@
 </demo>
 
 <template>
-  <Button @click="toggle">展示弹层</Button>
+  <Button theme="primary" @click="toggle">展示弹层</Button>
   <Dialog
     :closeOnClickOverlay="false"
     v-model:visible="visible"

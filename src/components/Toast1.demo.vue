@@ -3,7 +3,7 @@
 </demo>
 
 <template>
-  <Button @click="showToast">领取</Button>
+  <Button theme="primary" @click="showToast">领取</Button>
 </template>
 
 <script lang="ts">

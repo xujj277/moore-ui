@@ -3,7 +3,7 @@
 </demo>
 
 <template>
-  <Button @click="showDialog">展示弹层</Button>
+  <Button theme="primary" @click="showDialog">展示弹层</Button>
 </template>
 
 <script lang="ts">
