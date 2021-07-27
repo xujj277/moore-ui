@@ -1,18 +1,18 @@
 <demo>
-触发方式
+自定义内容
 </demo>
 
 <template>
-  <Popover trigger="click">
+  <Popover trigger="click" position="top">
     <template v-slot:content>content</template>
     <template v-slot:default>
-      <Button>触发</Button>
+      <Button>规则</Button>
     </template>
   </Popover>
-  <Popover trigger="hover">
-    <template v-slot:content>content</template>
+  <Popover trigger="click" position="top">
+    <template v-slot:content><Button>content</Button></template>
     <template v-slot:default>
-      <Button>触发</Button>
+      规则
     </template>
   </Popover>
 </template>

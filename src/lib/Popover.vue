@@ -119,12 +119,17 @@ export default {
 </script>
 
 <style lang='scss'>
-$border-color: #333;
-$border-radius: 4px;
+$border-color: #b2bab0;
+$border-radius: 10px;
+$background-color: #454851;
 .x-popover {
   display: inline-block;
   vertical-align: top;
   position: relative;
+  
+  & + & {
+    margin-left: 10px;
+  }
 }
 .x-popover-content-wrapper {
   position: absolute;
@@ -135,7 +140,10 @@ $border-radius: 4px;
   padding: .5em 1em;
   max-width: 200px;
   word-break: break-all;
-  background: white;
+  background: $background-color;
+  z-index: 12;
+  color: #eec78d;
+  
   &::before,&::after {
     content: '';
     display: block;
@@ -157,7 +165,7 @@ $border-radius: 4px;
     }
     &::after {
       border-bottom: none;
-      border-top-color: white;
+      border-top-color: $background-color;
       top: calc(100% - 2px);
     }
   }
@@ -173,7 +181,7 @@ $border-radius: 4px;
     }
     &::after {
       border-top: none;
-      border-bottom-color: white;
+      border-bottom-color: $background-color;
       bottom: calc(100% - 2px);
     }
   }
@@ -191,7 +199,7 @@ $border-radius: 4px;
     }
     &::after {
       border-right: none;
-      border-left-color: white;
+      border-left-color: $background-color;
       left: calc(100% - 1px);
     }
   }
@@ -208,7 +216,7 @@ $border-radius: 4px;
     }
     &::after {
       border-left: none;
-      border-right-color: white;
+      border-right-color: $background-color;
       right: calc(100% - 1px);
     }
   }
