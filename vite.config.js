@@ -4,8 +4,8 @@ import fs from 'fs'
 import {baseParse} from '@vue/compiler-core'
 
 export default {
-  base: './',
-  assetsDir: 'assets',
+  base: './', // 对应的文件路径 build path 用于部署
+  assetsDir: 'assets', // 对应的文件路径 build path 用于部署
   plugins: [md()],
   vueCustomBlockTransforms: {
     demo: (options) => {
