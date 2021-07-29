@@ -1,13 +1,13 @@
 <template>
   <div class="x-collapse-item">
-    <div class="x-title" @click="toggle">
+    <div class="x-collapse-title" @click="toggle">
       {{title}}
 
-      <svg class="x-right" :class="{active: open}">
+      <svg class="x-collapse-right" :class="{active: open}">
         <use xlink:href="#icon-right"></use>
       </svg>
     </div>
-    <div class="x-content" v-if="open">
+    <div class="x-collapse-content" v-if="open">
       <slot></slot>
     </div>
   </div>
@@ -57,7 +57,7 @@ export default {
 <style lang='scss'>
 $border-radius: 10px;
 .x-collapse-item {
-  > .x-title {
+  > .x-collapse-title {
     background: #e79579;
     border: 2px solid #fff;
     margin-top: -2px;
@@ -75,7 +75,7 @@ $border-radius: 10px;
     align-items: center;
     justify-content: space-between;
     
-    .x-right {
+    .x-collapse-right {
       width: 15px;
       height: 15px;
       fill: white;
@@ -87,22 +87,22 @@ $border-radius: 10px;
     }
   }
   &:first-child {
-    > .x-title {
+    > .x-collapse-title {
       border-top-left-radius: $border-radius;
       border-top-right-radius: $border-radius;
     }
   }
   &:last-child {
-    > .x-title:last-child {
+    > .x-collapse-title:last-child {
       border-bottom-left-radius: $border-radius;
       border-bottom-right-radius: $border-radius;
     }
-    > .x-content:last-child {
+    > .x-collapse-content:last-child {
       border-bottom-left-radius: $border-radius;
       border-bottom-right-radius: $border-radius;
     }
   }
-  .x-content {
+  .x-collapse-content {
     padding: 8px;
     border-right: 2px solid #fff;
     border-left: 2px solid #fff;

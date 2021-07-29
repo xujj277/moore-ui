@@ -1,7 +1,7 @@
 <template>
   <button class="x-button" @click="click" :class="classes" :disabled="disabled || loading">
-    <span v-if="loading" class="x-loadingIndicator x-icon"></span>
-    <span class="x-content"><slot></slot></span>
+    <span v-if="loading" class="x-button-loadingIndicator x-button-icon"></span>
+    <span class="x-button-content"><slot></slot></span>
   </button>
 </template>
 
@@ -127,7 +127,7 @@ $primary-border-color: #b7c4ba;
   }
   
   &.x-icon-right {
-    .x-content {
+    .x-button-content {
       order: 1;
     }
     .x-icon {
@@ -137,7 +137,7 @@ $primary-border-color: #b7c4ba;
   }
   
   &.x-icon-left {
-    .x-content {
+    .x-button-content {
       order: 2;
     }
     .x-icon {
@@ -267,7 +267,7 @@ $primary-border-color: #b7c4ba;
   &.x-loading {
     pointer-events: none;
   }
-  > .x-loadingIndicator{
+  > .x-button-loadingIndicator{
     width: 14px;
     height: 14px;
     display: inline-block;
