@@ -1,5 +1,5 @@
 <template>
-  <h2>Toast</h2>
+  <h2>Toast 轻提示</h2>
   <p class="tips">在页面弹出提示，用于消息通知、加载提示、操作结果提示等场景。</p>
   <Demo :component="Toast1Demo">
     <p>从顶部出现，3 秒后自动消失。</p>
