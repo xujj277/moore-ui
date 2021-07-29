@@ -6,13 +6,13 @@
   <Popover trigger="click">
     <template v-slot:content>content</template>
     <template v-slot:default>
-      <Button>触发</Button>
+      <Button>click</Button>
     </template>
   </Popover>
   <Popover trigger="hover">
     <template v-slot:content>content</template>
     <template v-slot:default>
-      <Button theme="primary">触发</Button>
+      <Button theme="primary">hover</Button>
     </template>
   </Popover>
 </template>

@@ -2,7 +2,7 @@
   <h2>Popover</h2>
   <p class="tips">点击/鼠标移入元素，弹出气泡式的卡片浮层。</p>
   <Demo :component="Popover1Demo">
-    <p>trigger 接受一个 String 类型，默认值是 'click', 另一个是 'hover' 事件。</p>
+    <p>trigger 接受一个 String 类型，默认值是 'click', 另一个是 'hover' 事件</p>
   </Demo>
   <Demo :component="Popover2Demo">
     <p>position 接受一个 String 类型，默认值是 'top'，还可以写 'bottom'、'left' 和 'right'</p>

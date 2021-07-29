@@ -69,8 +69,8 @@ h3 {
     border-radius: 3px;
     transition: .2s;
     border-bottom: none;
-    display: flex;
-    align-items: center;
+    //display: flex;
+    //align-items: center;
   }
   .code-block {
     border-top: 3px solid #f1ebd8;
