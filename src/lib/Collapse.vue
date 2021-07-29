@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { onMounted, inject, provide } from 'vue'
+import { onMounted, provide } from 'vue'
 import EventBus from "../lib/eventBus.ts"
 
 export default {
