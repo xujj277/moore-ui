@@ -6,7 +6,7 @@
         <h1>摩尔UI</h1>
         <h2>一个关于摩尔庄园的 UI 框架</h2>
         <p class="actions">
-          <a href="https://github.com/xujj277/xu-ui-1">GitHub</a>
+          <a href="https://github.com/xujj277/moore-ui">GitHub</a>
           <router-link to="/doc">开始</router-link>
         </p>
       </div>
