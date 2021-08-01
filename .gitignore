@@ -5,3 +5,4 @@ dist
 *.local
 yarn.lock
 .idea
+yarn-error.log

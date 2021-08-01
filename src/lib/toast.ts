@@ -1,3 +1,4 @@
+// @ts-ignore
 import { createApp, h } from 'vue'
 import Toast from './Toast.vue'
 let app

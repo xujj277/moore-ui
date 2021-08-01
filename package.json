@@ -1,11 +1,11 @@
 {
   "name": "moore-ui",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "files": [
     "dist/lib/*"
   ],
-  "main": "dist/lib/gulu.js",
-  "module": "dist/lib/gulu.esm.js",
+  "main": "dist/lib/moore.js",
+  "module": "dist/lib/moore.esm.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
