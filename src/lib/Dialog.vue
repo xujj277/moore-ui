@@ -53,12 +53,12 @@ export default {
       context.emit('update:visible', false)
     }
     const onCancel = () => {
-      if (props.cancel?.() !== false) {
+      if (props.cancel && props.cancel() !== false) {
         close()
       }
     }
     const onConfirm = () => {
-      if (props.ok?.() !== false) {
+      if (props.ok && props.ok() !== false) {
         close()
       }
     }
