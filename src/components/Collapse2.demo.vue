@@ -17,8 +17,8 @@
 </template>
 
 <script lang="ts">
-import Collapse from '../lib/Collapse.vue'
-import CollapseItem from '../lib/CollapseItem.vue'
+import { Collapse } from '../lib/index'
+import { CollapseItem } from '../lib/index'
 import { ref } from 'vue'
 export default {
   components: {

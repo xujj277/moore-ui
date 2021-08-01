@@ -4,7 +4,7 @@
 然后在你的代码中写入下面的代码
 
 ```
-import {Button, Tabs, Switch, Dialog} from "moore-ui"
+import {Button, Switch, Dialog, Tabs, Tab, Input, Toast, Popover, Collapse, CollapseItem, openToast, openDialog} from 'moore-ui'
 ```
 
 就可以使用我提供的组件了。
@@ -20,9 +20,17 @@ import {Button, Tabs, Switch, Dialog} from "moore-ui"
   </div>
 </template>
 <script>
-import {Button, Tabs, Switch, Dialog} from "moore-ui"
+import {Button, Switch, Dialog, Tabs, Tab, Input, Toast, Popover, Collapse, CollapseItem, openToast, openDialog} from 'moore-ui'
 export default {
   components: {Button}
 }
 </script>
+```
+
+文档中示例代码中的路径都是相对路径请改成你自己文件对应的路径
+```
+import { Button } from '../lib/index' // 我文件的相对路径请更改如下
+
+import {Button, Switch, Dialog, Tabs, Tab, Input, Toast, Popover, Collapse, CollapseItem, openToast, openDialog} from 'moore-ui'
+
 ```

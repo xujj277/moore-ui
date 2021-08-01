@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import { ref } from 'vue'
-import Button from '../lib/Button.vue'
+import { Button } from '../lib/index'
 import Dialog from '../lib/Dialog.vue'
 
 export default {

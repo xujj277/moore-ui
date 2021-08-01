@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import Input from '../lib/Input.vue'
+import { Input } from '../lib/index'
 import { ref } from 'vue'
 
 export default {

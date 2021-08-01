@@ -25,10 +25,10 @@
 </template>
 
 <script lang="ts">
-import Collapse from '../lib/Collapse.vue'
-import CollapseItem from '../lib/CollapseItem.vue'
-import Popover from '../lib/Popover.vue'
-import Button from '../lib/Button.vue'
+import { Collapse } from '../lib/index'
+import { CollapseItem } from '../lib/index'
+import { Popover } from '../lib/index'
+import { Button } from '../lib/index'
 import { ref } from 'vue'
 export default {
   components: {
