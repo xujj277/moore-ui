@@ -92,6 +92,7 @@ $border-color: #b0967a;
     border-bottom: 1px solid $border-color;
     position: relative;
     overflow-x: auto;
+    overflow-y: hidden;
 
     &-item {
       padding: 8px 0;
