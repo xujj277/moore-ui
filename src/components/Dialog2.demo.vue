@@ -17,8 +17,8 @@ export default {
   setup (props) {
     const showDialog = () => {
       openDialog({
-        title: () => {return 'Title'},
-        content: () => {return 'hi'},
+        title: () => {return '这次我是很帅的标题'},
+        content: () => {return '我是可爱的内容'},
         ok: () => {return false},
         cancel: () => {},
         closeOnClickOverlay: false

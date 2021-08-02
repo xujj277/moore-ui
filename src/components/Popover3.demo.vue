@@ -10,7 +10,7 @@
     </template>
   </Popover>
   <Popover trigger="click" position="top">
-    <template v-slot:content><Button theme="danger">content</Button></template>
+    <template v-slot:content><Button theme="danger">按我</Button></template>
     <template v-slot:default>
       规则
     </template>

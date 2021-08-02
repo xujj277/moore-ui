@@ -5,13 +5,13 @@
 <template>
   <Collapse v-model:selected="selectArray" single>
     <CollapseItem name="1" title="攻略中心">
-      STRATEGY
+      STRATEGY 攻略我
     </CollapseItem>
     <CollapseItem name="2" title="玩家社区">
-      COMMUNITY
+      COMMUNITY 我在这
     </CollapseItem>
     <CollapseItem name="3" title="新闻资讯">
-      NEWS
+      NEWS 我还在！
     </CollapseItem>
   </Collapse>
 </template>

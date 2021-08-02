@@ -21,18 +21,18 @@ export default {
     let toastVisible = ref(false)
     const showToast = () => {
       openToast({
-        message: () => {return 'top'},
+        message: () => {return '我在上面，嘿嘿嘿'},
       })
     }
     const showToast1 = () => {
       openToast({
-        message: () => {return 'middle'},
+        message: () => {return '我在中间，哈哈哈'},
         position: 'middle'
       })
     }
     const showToast2 = () => {
       openToast({
-        message: () => {return 'bottom'},
+        message: () => {return '我在下面，hhh'},
         position: 'bottom'
       })
     }

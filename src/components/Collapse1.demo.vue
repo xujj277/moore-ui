@@ -8,18 +8,18 @@
       摩尔庄园
     </CollapseItem>
     <CollapseItem name="2" title="官方微博">
-      asdfas@sina.com
+      asdfas@sina.com 我乱写的
     </CollapseItem>
     <CollapseItem name="3" title="官方QQ群">
       <Popover trigger="click">
-        <template v-slot:content>content</template>
+        <template v-slot:content>939****41 这个是真的</template>
         <template v-slot:default>
           <Button>click</Button>
         </template>
       </Popover>
     </CollapseItem>
     <CollapseItem name="4" title="联系客服">
-      400000000
+      135****6809  这个是真电话
     </CollapseItem>
   </Collapse>
 </template>

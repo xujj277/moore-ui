@@ -19,7 +19,7 @@ export default {
     let toastVisible = ref(false)
     const showToast = () => {
       openToast({
-        message: () => {return `不自动关闭`},
+        message: () => {return `我不会自动关闭，帮我点一下右边这个按钮`},
         autoClose: false,
         closeButton: {
           text: '关闭',

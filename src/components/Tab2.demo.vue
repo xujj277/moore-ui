@@ -7,7 +7,7 @@
     <Tab title="家园装饰" name="1">宫廷装扮</Tab>
     <Tab title="小屋家具" name="2" disabled>温馨装置</Tab>
     <Tab title="小镇建筑" name="3">复古灯光</Tab>
-    <Tab title="超拉专属" name="4">零食</Tab>
+    <Tab title="超拉专属" name="4">零食（不要多吃）</Tab>
   </Tabs>
 </template>
 

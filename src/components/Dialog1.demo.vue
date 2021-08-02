@@ -11,11 +11,11 @@
     :cancel="handleCancel"
   >
     <template v-slot:title>
-      <strong>title</strong>
+      <strong>我是可爱的标题</strong>
     </template>
     <template v-slot:content>
-      <div>hi</div>
-      <strong>hi</strong>
+      <div>我是帅气的内容</div>
+      <strong>我的内容可以变粗</strong>
     </template>
   </Dialog>
 </template>
