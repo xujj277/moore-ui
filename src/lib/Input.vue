@@ -35,8 +35,11 @@ export default {
 $border-color: #e6e3e0;
 $border-radius: 10px;
 $border-color-hover: #666;
-$box-shadow-color: #e9e6cc;
 $red: #F1453D;
+
+input {
+  -webkit-appearance:none;
+}
 
 .x-wrapper {
   .x-input {
