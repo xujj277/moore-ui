@@ -91,11 +91,13 @@ $border-color: #b0967a;
     color: $color;
     border-bottom: 1px solid $border-color;
     position: relative;
+    overflow-x: auto;
 
     &-item {
       padding: 8px 0;
       margin: 0 16px;
       cursor: pointer;
+      flex-shrink: 0;
 
       &:first-child {
         margin-left: 0;

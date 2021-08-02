@@ -64,7 +64,6 @@ export default {
 .layout {
   display: flex;
   flex-direction: column;
-  height: 100vh;
   > .nav {
     flex-shrink: 0;
   }
