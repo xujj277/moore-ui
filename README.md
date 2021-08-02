@@ -3,6 +3,7 @@ Moore UI 是一款视图设计基于摩尔庄园手游，代码基于 Vue 3 和 
 
 [官网](https://xujj277.github.io/moore-ui-website/index.html#/)
 
+> 本组件库仅供学习交流，请勿在生产环境中使用
 ## 运行步骤
 
 1. 运行 yarn
@@ -18,3 +19,5 @@ Moore UI 是一款视图设计基于摩尔庄园手游，代码基于 Vue 3 和 
 
 1. 运行 rollup -c
 2. 得到的 dist/lib 目录就是编译后的库文件所在目录
+
+如果您觉得还不错，请给个 star，谢谢Thanks♪(･ω･)ﾉ
