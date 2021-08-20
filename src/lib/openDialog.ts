@@ -11,7 +11,7 @@ export const openDialog = (options) => {
         visible: true,
         'onUpdate:visible': (val) => {
           if (val === false) {
-            app.unmount()
+            app.unmount('')
             div.remove()
           }
         },

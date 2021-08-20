@@ -107,6 +107,7 @@ export default {
         popover.value.removeEventListener('mouseenter', open)
         popover.value.removeEventListener('mouseleave', close)
       }
+      document.removeEventListener('click', clickDocument)
     })
     return {
       visible,
