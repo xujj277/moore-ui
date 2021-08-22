@@ -24,14 +24,10 @@ export default {
   display: flex;
   flex-direction: column;
   & & {
-    flex-grow: 1;
-    flex-direction: row;
+    flex: 1;
   }
   &-hasAside {
     flex-direction: row;
-    .moore-layout {
-      flex-direction: column;
-    }
   }
 }
 </style>

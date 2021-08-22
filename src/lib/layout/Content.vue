@@ -12,9 +12,6 @@ export default {
 
 <style lang='scss'>
 .moore-layout-content {
-  flex-grow: 1;
-  .moore-layout-hasAside {
-    flex-direction: row;
-  }
+  flex: 1;
 }
 </style>

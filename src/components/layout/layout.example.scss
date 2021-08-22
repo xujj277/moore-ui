@@ -3,12 +3,14 @@
   background: #e99779;
   margin: 4px 0;
   color: white;
+  text-align: center;
 }
 
 .y {
   background: lighten(#e99779, 5%);
   margin: 4px 0;
   color: white;
+  text-align: center;
 }
 
 .z {
@@ -16,6 +18,7 @@
   width: 100px;
   margin: 4px 0;
   color: white;
+  text-align: center;
 }
 
 .z + .y, .y + .z, .z + .moore-layout {
