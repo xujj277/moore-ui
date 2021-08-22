@@ -4,7 +4,7 @@
     <div class="demo-block">
       <component :is="component"></component>
     </div>
-    <div class="code-block">
+    <div class="code-block" v-if="flag">
       <div class="description">
         <slot></slot>
       </div>
@@ -33,10 +33,11 @@ export default {
   props: {
     component: Object
   },
-  setup(props) {
+  setup(props, context) {
     const html = computed(() => {
       return Prism.highlight(props.component.__sourceCode, Prism.languages.html, 'html')
     })
+    const flag = context.slots && context.slots.default
     const showCode = () => codeVisible.value = true
     const hideCode = () => codeVisible.value = false
     const codeVisible = ref(false)
@@ -45,7 +46,8 @@ export default {
       Prism,
       codeVisible,
       showCode,
-      hideCode
+      hideCode,
+      flag
     }
   }
 }

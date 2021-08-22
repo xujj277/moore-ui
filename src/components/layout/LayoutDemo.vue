@@ -1,10 +1,10 @@
 <template>
   <h2>Layout 布局</h2>
-  <p class="tips">通过鼠标或键盘输入内容，是最基础的表单域的包装。</p>
-  <Demo :component="Layout1Demo"><p>基本使用。</p></Demo>
-  <Demo :component="Layout2Demo"><p>基本使用。</p></Demo>
-  <Demo :component="Layout3Demo"><p>基本使用。</p></Demo>
-  <Demo :component="Layout4Demo"><p>基本使用。</p></Demo>
+  <p class="tips">用于布局的容器组件，方便快速搭建页面的基本结构</p>
+  <Demo :component="Layout1Demo"><p>以上组件采用了 flex 布局，使用前请确定目标浏览器是否兼容。</p></Demo>
+  <Demo :component="Layout2Demo"><p>遇到 layout-aside 会水平左右排列</p></Demo>
+  <Demo :component="Layout3Demo"></Demo>
+  <Demo :component="Layout4Demo"></Demo>
 </template>
 
 <script lang="ts">

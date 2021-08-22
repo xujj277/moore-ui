@@ -1,5 +1,5 @@
 <demo>
-基本用法
+基本布局
 </demo>
 
 <template>
