@@ -18,6 +18,9 @@
         <h1>组件列表</h1>
         <ol>
           <li>
+            <router-link to="/doc/layout">Layout 布局</router-link>
+          </li>
+          <li>
             <router-link to="/doc/switch">Switch 开关</router-link>
           </li>
           <li>

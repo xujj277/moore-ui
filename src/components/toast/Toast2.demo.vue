@@ -9,7 +9,7 @@
 <script lang="ts">
 import { Button } from '../../lib'
 import { ref } from 'vue'
-import { openToast } from '../../lib/toast.ts'
+import { openToast } from '../../lib/toast/toast.ts'
 
 export default {
   components: {

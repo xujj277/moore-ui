@@ -10,6 +10,7 @@ import TabDemo from './components/tab/TabDemo.vue'
 import ToastDemo from './components/toast/ToastDemo.vue'
 import PopoverDemo from './components/popover/PopoverDemo.vue'
 import InputDemo from './components/input/InputDemo.vue'
+import LayoutDemo from './components/layout/LayoutDemo.vue'
 import { h } from 'vue'
 import Markdown from './components/Markdown.vue'
 import intro from './markdown/intro.md'
@@ -33,6 +34,7 @@ export const router = createRouter({
         {path: 'button', component: ButtonDemo},
         {path: 'dialog', component: DialogDemo},
         {path: 'input', component: InputDemo},
+        {path: 'layout', component: LayoutDemo},
         {path: 'tabs', component: TabDemo},
         {path: 'toast', component: ToastDemo},
         {path: 'popover', component: PopoverDemo},

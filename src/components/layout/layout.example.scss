@@ -1,0 +1,23 @@
+.x {
+  height: 40px;
+  background: #e99779;
+  margin: 4px 0;
+  color: white;
+}
+
+.y {
+  background: lighten(#e99779, 5%);
+  margin: 4px 0;
+  color: white;
+}
+
+.z {
+  background: #97cbe3;
+  width: 100px;
+  margin: 4px 0;
+  color: white;
+}
+
+.z + .y, .y + .z, .z + .moore-layout {
+  margin-left: 8px;
+}

@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { Button } from '../../lib'
-import { openDialog } from '../../lib/openDialog.ts'
+import { openDialog } from '../../lib/dialog/openDialog.ts'
 
 export default {
   components: {
