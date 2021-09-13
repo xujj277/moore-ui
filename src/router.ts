@@ -17,6 +17,7 @@ import intro from './markdown/intro.md'
 import getStarted from './markdown/get-started.md'
 import install from './markdown/install.md'
 import CollapseDemo from './components/collapse/CollapseDemo.vue'
+import ScrollDemo from './components/scroll/ScrollDemo.vue'
 const md = string => h(Markdown, {content: string, key: string}) 
 export const router = createRouter({
   history: history,
@@ -39,6 +40,7 @@ export const router = createRouter({
         {path: 'toast', component: ToastDemo},
         {path: 'popover', component: PopoverDemo},
         {path: 'collapse', component: CollapseDemo},
+        {path: 'scroll', component: ScrollDemo},
       ]
     }
   ]
