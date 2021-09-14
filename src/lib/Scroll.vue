@@ -10,7 +10,7 @@
     >
       <slot></slot>
     </div>
-    <div class="moore-scroll-track">
+    <div class="moore-scroll-track" v-if="barVisible" @mouseenter="onMouseEnter">
       <div class="moore-scroll-bar" 
            :style="{height: `${barHeight}px`, transform: `translateY(${barTop}px)`}"
            @mousedown="onMouseDown"
@@ -37,6 +37,8 @@ export default {
     let translateY = ref(0)
     let touchStartY = ref(0)
     let isPulling = ref(false)
+    let barVisible = ref(false)
+    let timerId = ref(null)
     const scrollHeight = computed(() => {
       return container.value.scrollHeight // 不可见部分的高度
     })
@@ -73,10 +75,24 @@ export default {
     }
     const onMouseUp = () => {
       isDragging.value = false
+      barVisible.value = false
+    }
+    const onMouseEnter = () => {
+      if (timerId.value !== null) {
+        window.clearTimeout(timerId.value)
+      }
+      barVisible.value = true
     }
     const onScroll = () => {
+      barVisible.value = true
       const scrollTop = container.value.scrollTop
       setBarTop(scrollTop * viewHeight.value / scrollHeight.value) // 移动滚动条的距离
+      if (timerId.value !== null) {
+        window.clearTimeout(timerId.value)
+      }
+      timerId.value = window.setTimeout(() => {
+        barVisible.value = false
+      }, 500)
     }
     const onTouchStart = (e) => {
       const scrollTop = container.value.scrollTop
@@ -109,7 +125,9 @@ export default {
       translateY,
       onTouchStart,
       onTouchMove,
-      onTouchEnd
+      onTouchEnd,
+      barVisible,
+      onMouseEnter
     }
   }
 }
