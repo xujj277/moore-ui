@@ -3,6 +3,10 @@
     <div class="moore-scroll-inner"
          ref="container"
          @scroll="onScroll"
+         :style="{transform: `translateY(${translateY}px)`}"
+         @touchstart="onTouchStart"
+         @touchmove="onTouchMove"
+         @touchend="onTouchEnd"
     >
       <slot></slot>
     </div>
@@ -12,6 +16,10 @@
            @mousedown="onMouseDown"
       ></div>
     </div>
+    <div className="moore-scroll-pulling" :style="{height: `${translateY}px`}">
+      <span className="moore-scroll-pulling-text" v-if="translateY === 150">释放手指即可更新</span>
+      <span className="moore-scroll-pulling-icon" v-else>↓</span>
+    </div>
   </div>
 </template>
 
@@ -19,13 +27,16 @@
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 
 export default {
-  setup() {
+  setup(props, context) {
     let barHeight = ref(0)
     const container = ref<HTMLDivElement>(null)
     let isDragging = ref(false) // 记录是否在拖拽
     let mouseDownY = ref(0)
     let barTop = ref(0)
     let preTop = ref(0) // 因为 barTop 是一直改变的
+    let translateY = ref(0)
+    let touchStartY = ref(0)
+    let isPulling = ref(false)
     const scrollHeight = computed(() => {
       return container.value.scrollHeight // 不可见部分的高度
     })
@@ -41,13 +52,13 @@ export default {
       document.removeEventListener('mousemove', onMouseMove)
       document.removeEventListener('mouseup', onMouseUp)
     })
-    const setBarTop = (number) => {
+    const setBarTop = (number:number) => {
       if (number < 0) return
       const maxBarTop = (scrollHeight.value - viewHeight.value) * viewHeight.value / scrollHeight.value
       if (number > maxBarTop) return
       barTop.value = number
     }
-    const onMouseDown = (e) => {
+    const onMouseDown = (e: MouseEvent) => {
       isDragging.value = true
       mouseDownY.value = e.clientY
       preTop.value = barTop.value
@@ -67,6 +78,26 @@ export default {
       const scrollTop = container.value.scrollTop
       setBarTop(scrollTop * viewHeight.value / scrollHeight.value) // 移动滚动条的距离
     }
+    const onTouchStart = (e) => {
+      const scrollTop = container.value.scrollTop
+      if (scrollTop !== 0) return
+      touchStartY.value = e.touches[0].clientY
+      isPulling.value = true
+    }
+    const onTouchMove = (e) => {
+      if (isPulling.value) {
+        const delta = e.touches[0].clientY - touchStartY.value
+        if (delta < 0) return
+        translateY.value = delta
+      }
+    }
+    const onTouchEnd = () => {
+      if (isPulling.value) {
+        translateY.value = 0
+        context.emit('onPull')
+        isPulling.value = false
+      }
+    }
     return {
       container,
       barHeight,
@@ -74,7 +105,11 @@ export default {
       onMouseMove,
       onMouseUp,
       barTop,
-      onScroll
+      onScroll,
+      translateY,
+      onTouchStart,
+      onTouchMove,
+      onTouchEnd
     }
   }
 }
@@ -106,12 +141,24 @@ export default {
   }
   &-bar {
     height: 30px;
-    background: rgba(128, 128, 128, 0.8);
+    background: #c08364;
     position: absolute;
     top: 0;
     left: 2px;
     width: 6px;
     border-radius: 3px;
+  }
+  &-pulling {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-icon {
+      font-size: 30px;
+    }
+    &-text {
+      font-size: 12px;
+    }
   }
 }
 </style>
