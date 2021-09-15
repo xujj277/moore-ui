@@ -8,7 +8,8 @@
   "module": "dist/lib/moore.esm.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "build:lib": "rollup -c rollup.config.js"
   },
   "dependencies": {
     "github-markdown-css": "^4.0.0",
