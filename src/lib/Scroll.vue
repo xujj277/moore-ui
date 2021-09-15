@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
 export default {
   setup(props, context) {
@@ -50,22 +50,22 @@ export default {
       document.addEventListener('mousemove', onMouseMove) // 为什么要挂在document上，因为挂到bar上不像原生的状态
       document.addEventListener('mouseup', onMouseUp)
     })
-    onUnmounted(() => {
+    onBeforeUnmount(() => {
       document.removeEventListener('mousemove', onMouseMove)
       document.removeEventListener('mouseup', onMouseUp)
     })
-    const setBarTop = (number:number) => {
+    const setBarTop = (number) => {
       if (number < 0) return
       const maxBarTop = (scrollHeight.value - viewHeight.value) * viewHeight.value / scrollHeight.value
       if (number > maxBarTop) return
       barTop.value = number
     }
-    const onMouseDown = (e: MouseEvent) => {
+    const onMouseDown = (e) => {
       isDragging.value = true
       mouseDownY.value = e.clientY
       preTop.value = barTop.value
     }
-    const onMouseMove = (e: MouseEvent) => {
+    const onMouseMove = (e) => {
       if (isDragging.value) {
         const delta = e.clientY - mouseDownY.value // 记录拖拽的距离
         const newBarTop = preTop.value + delta

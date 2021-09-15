@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { onMounted, provide } from 'vue'
-import EventBus from "../eventBus.ts"
+import EventBus from "../eventBus.js"
 
 export default {
   props: {

@@ -1,5 +1,4 @@
 export default class EventBus {
-  events: {}
   constructor () {
     this.events = {}
   }
