@@ -6,6 +6,7 @@ import { terser } from 'rollup-plugin-terser'
 
 export default {
   input: 'src/lib/index.ts',
+  external: ['vue'],
   output: [
     {
       globals: {
