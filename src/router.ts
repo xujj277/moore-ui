@@ -11,39 +11,37 @@ import ToastDemo from './components/toast/ToastDemo.vue'
 import PopoverDemo from './components/popover/PopoverDemo.vue'
 import InputDemo from './components/input/InputDemo.vue'
 import LayoutDemo from './components/layout/LayoutDemo.vue'
-import { h } from 'vue'
-import Markdown from './components/Markdown.vue'
 import intro from './markdown/intro.md'
 import getStarted from './markdown/get-started.md'
 import install from './markdown/install.md'
 import CollapseDemo from './components/collapse/CollapseDemo.vue'
 import ScrollDemo from './components/scroll/ScrollDemo.vue'
-const md = string => h(Markdown, {content: string, key: string}) 
+
 export const router = createRouter({
   history: history,
   routes: [
-    {path: '/', component: Home},
+    { path: '/', component: Home },
     {
       path: '/doc',
       component: Doc,
       children: [
-        {path: '', redirect: '/doc/intro'},
-        {path: 'install', component: md(install)},
-        {path: 'get-started', component: md(getStarted)},
-        {path: 'intro', component: md(intro)},
-        {path: 'switch', component: SwitchDemo},
-        {path: 'button', component: ButtonDemo},
-        {path: 'dialog', component: DialogDemo},
-        {path: 'input', component: InputDemo},
-        {path: 'layout', component: LayoutDemo},
-        {path: 'tabs', component: TabDemo},
-        {path: 'toast', component: ToastDemo},
-        {path: 'popover', component: PopoverDemo},
-        {path: 'collapse', component: CollapseDemo},
-        {path: 'scroll', component: ScrollDemo},
-      ]
-    }
-  ]
+        { path: '', redirect: '/doc/intro' },
+        { path: 'install', component: install },
+        { path: 'get-started', component: getStarted },
+        { path: 'intro', component: intro },
+        { path: 'switch', component: SwitchDemo },
+        { path: 'button', component: ButtonDemo },
+        { path: 'dialog', component: DialogDemo },
+        { path: 'input', component: InputDemo },
+        { path: 'layout', component: LayoutDemo },
+        { path: 'tabs', component: TabDemo },
+        { path: 'toast', component: ToastDemo },
+        { path: 'popover', component: PopoverDemo },
+        { path: 'collapse', component: CollapseDemo },
+        { path: 'scroll', component: ScrollDemo },
+      ],
+    },
+  ],
 })
 
 router.afterEach(() => {

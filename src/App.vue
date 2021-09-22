@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import {ref, provide} from 'vue'
+import { ref, provide } from 'vue'
 import { router } from './router'
 export default {
   name: 'App',
@@ -16,7 +16,6 @@ export default {
         menuVisible.value = false
       }
     })
-
-  }
+  },
 }
 </script>

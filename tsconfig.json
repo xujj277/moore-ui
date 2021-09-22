@@ -4,6 +4,7 @@
     "module": "esnext",
     "strict": false,
     "jsx": "preserve",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "esModuleInterop": true
   }
 }
