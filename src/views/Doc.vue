@@ -47,6 +47,9 @@
           <li>
             <router-link to="/doc/scroll">Scroll 滚动条</router-link>
           </li>
+          <li>
+            <router-link to="/doc/citySelect">CitySelect 城市选择</router-link>
+          </li>
         </ol>
       </aside>
       <main>

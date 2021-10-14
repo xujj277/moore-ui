@@ -16,6 +16,7 @@ import getStarted from './markdown/get-started.md'
 import install from './markdown/install.md'
 import CollapseDemo from './components/collapse/CollapseDemo.vue'
 import ScrollDemo from './components/scroll/ScrollDemo.vue'
+import CitySelectDemo from './components/citySelect/CitySelectDemo.vue'
 
 export const router = createRouter({
   history: history,
@@ -39,6 +40,7 @@ export const router = createRouter({
         { path: 'popover', component: PopoverDemo },
         { path: 'collapse', component: CollapseDemo },
         { path: 'scroll', component: ScrollDemo },
+        { path: 'citySelect', component: CitySelectDemo },
       ],
     },
   ],
