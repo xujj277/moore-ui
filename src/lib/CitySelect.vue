@@ -76,9 +76,6 @@ export default {
 
 <style lang='scss' scoped>
 .moore-citySelect {
-  &-body {
-    overflow: hidden;
-  }
   &-dialog {
     position: fixed;
     top: 0;
@@ -90,19 +87,20 @@ export default {
     z-index: 12;
     
     h2 {
-      color: #1b1f23;
+      color: #c66f48;
     }
     > header {
-      background: rgb(255, 202, 0);
+      background: #8c6e59;
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
       font-size: 16px;
       line-height: 50px;
+      color: #fff;
       > .icon {
         position: absolute;
-        left: 0;
+        left: 10px;
       }
     }
   }
