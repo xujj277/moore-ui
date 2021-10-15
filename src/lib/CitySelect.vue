@@ -10,6 +10,18 @@
         <ol className="moore-citySelect-index">
           <li v-for="item in indexList">{{item}}</li>
         </ol>
+        <div className="cityList">所有城市</div>
+        <div v-for="item in cityList" 
+             className="moore-citySelect-citySection"
+        >
+          <h4 :data-letter=item[0]>{{ item[0] }}</h4>
+          <div v-for="city in item[1]" 
+               className="moore-citySelect-cityName"
+               @click="onChange(city)"
+          >
+            {{ city }}
+          </div>
+        </div>
       </div>
     </teleport>
   </template>
@@ -30,6 +42,7 @@ export default {
       type: Array
     }
   },
+  emits: ['onChange'],
   setup (props, context) {
     const map = computed(() => {
       let object = {}
@@ -44,12 +57,18 @@ export default {
       return object
     })
     const indexList = Object.keys(map.value).sort();
+    const cityList = Object.entries(map.value).sort((a, b) => a[0].charCodeAt(0) - b[0].charCodeAt(0))
     const backClick = () => {
-      context.$emit('update:visible', false)
+      context.emit('update:visible', false)
+    }
+    const onChange = (city) => {
+      context.emit('onChange', city)
     }
     return {
       backClick,
-      indexList
+      indexList,
+      cityList,
+      onChange
     }
   }
 }
